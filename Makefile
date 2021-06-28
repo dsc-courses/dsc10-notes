@@ -55,7 +55,8 @@ docker:
 	# one instance where you'd want to build this: your UID
 	# is not 1000. In that case, `make docker` will create an
 	# image using the appropriate user ID.
-	docker build --build-arg USER_ID=$(shell id -u) . \
+	docker build \
+		--build-arg USER_ID=$(shell id -u) . \
 		-t dive_into_data_science:${IMAGE_TAG}
 
 

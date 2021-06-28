@@ -44,6 +44,10 @@ Before working on the book, run `make init` in the project's root. This will
 build the Docker image used for compiling the textbook, install git commit
 hooks, etc.
 
+To launch a Jupyter notebook server inside the development environment, run
+`make jupyter`. To instead launch a shell inside the development environment,
+run `make shell`.
+
 ### Project Structure
 
 This textbook is written using [JupyterBook](jupyterbook.org) along with
