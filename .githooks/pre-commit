@@ -9,7 +9,4 @@ docker run \
     /home/runner/env/bin/python \
     /document/scripts/clear_notebook_outputs.py"
 
-echo "[pre-commit hook] Making reader-friendly notebooks..."
-make notebooks > /dev/null
-
 git add .

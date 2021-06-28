@@ -56,11 +56,13 @@ be used to launch notebooks interactively.
 `extensions/` contains the extensions which define custom directives. See
 "Extensions" below.
 
-`notebooks/` contains machine-generated versions of the Jupyter notebooks used
-as textbook pages, but with ugly directive cells removed. Removing directive
-cells can be performed by running `make notebooks` in the project root. This
-target is also run whenever the HTML version of the textbook is built (using
-`make html`).
+`notebooks/` contains the Jupyter notebooks that students will see if they open
+the interactive version of the textbook page. Some of these notebooks are
+automatically generated from the textbook pages by cleaning them of directive
+cells. Generating these notebooks is done by running `make notebooks` in the
+project root. This target is also run whenever the HTML version of the textbook
+is built (using `make html`). Other notebooks in this directory are
+"out-of-tree" notebooks that are not themselves textbook pages. 
 
 `scripts/` contains various scripts used in the development and building of the
 textbook. These scripts should generally not be invoked manually.
