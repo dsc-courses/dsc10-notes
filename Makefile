@@ -60,7 +60,7 @@ docker:
 
 
 .PHONY: jupyter
-jupyter:
+jupyter: docker
 	# start a jupyter notebook server within the docker container
 	# used to build the textbook
 	docker run -it -p 8888:8888 \
@@ -69,7 +69,7 @@ jupyter:
 
 
 .PHONY: shell
-shell:
+shell: docker
 	# start a shell within the docker container used to build the textbook
 	docker run -it \
 		--mount type=bind,src=$(shell pwd),target=/home/runner/host \
