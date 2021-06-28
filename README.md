@@ -3,7 +3,7 @@ Dive into Data Science
 
 *Dive into Data Science* is an introductory textbook which develops the core
 ideas of statistics via programming and simulation instead of the manipulation
-of mathematical formulae. At the same time, textbook does not assume that the
+of mathematical formulae. At the same time, the textbook does not assume that the
 reader has any experience in programming; instead, we learn "just enough"
 programming to do data science.  The textbook is written around the
 [`babypandas`](https://github.com/babypandas-dev/babypandas) package; an
