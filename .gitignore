@@ -1,6 +1,7 @@
 # project-specific
 book/_build
 notebooks/book_pages
+.direnv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

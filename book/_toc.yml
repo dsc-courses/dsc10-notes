@@ -1,7 +1,8 @@
-- file: front
+format: jb-book
+root: front
+parts:
+- caption: 1. Getting Started
   numbered: true
-
-- part: 1. Getting Started
   chapters:
   - file: 01-getting_started/tools
   - file: 01-getting_started/first_steps
@@ -13,49 +14,49 @@
     - file: 01-getting_started/data_types-numeric
     - file: 01-getting_started/data_types-strings
     - file: 01-getting_started/data_types-bool
-
-- part: 2. NumPy and Babypandas
+- caption: 2. NumPy and Babypandas
+  numbered: true
   chapters:
-    - file: 02-data_sets/arrays
-    - file: 02-data_sets/dataframes
-    - file: 02-data_sets/accessing
-    - file: 02-data_sets/querying
-    - file: 02-data_sets/groupby
-    - file: 02-data_sets/apply
-
-- part: 3. Visualization
+  - file: 02-data_sets/arrays
+  - file: 02-data_sets/dataframes
+  - file: 02-data_sets/accessing
+  - file: 02-data_sets/querying
+  - file: 02-data_sets/groupby
+  - file: 02-data_sets/apply
+- caption: 3. Visualization
+  numbered: true
   chapters:
-    - file: 03-visualization/intro
-    - file: 03-visualization/scatter
-    - file: 03-visualization/line
-    - file: 03-visualization/histogram
-
-- part: 4. Advanced Data Manipulation
+  - file: 03-visualization/intro
+  - file: 03-visualization/scatter
+  - file: 03-visualization/line
+  - file: 03-visualization/histogram
+- caption: 4. Advanced Data Manipulation
+  numbered: true
   chapters:
-    - file: 04-advanced_data_manipulation/merging
-
-- part: 5. Probability and Simulation
+  - file: 04-advanced_data_manipulation/merging
+- caption: 5. Probability and Simulation
+  numbered: true
   chapters:
-    - file: 05-probability_and_simulation/probability_and_simulation
-
-- part: 6. Populations and Samples
+  - file: 05-probability_and_simulation/probability_and_simulation
+- caption: 6. Populations and Samples
+  numbered: true
   chapters:
-    - file: 06-populations_and_samples/1_populations_and_samples
-    - file: 06-populations_and_samples/2_parameters_and_statistics
-
-- part: 7. Hypothesis Testing
+  - file: 06-populations_and_samples/1_populations_and_samples
+  - file: 06-populations_and_samples/2_parameters_and_statistics
+- caption: 7. Hypothesis Testing
+  numbered: true
   chapters:
-    - file: 07-hypothesis_testing/1_hypothesis_tests
-    - file: 07-hypothesis_testing/2_permutation_tests
-
-- part: 8. Estimation
+  - file: 07-hypothesis_testing/1_hypothesis_tests
+  - file: 07-hypothesis_testing/2_permutation_tests
+- caption: 8. Estimation
+  numbered: true
   chapters:
-    - file: 08-estimation/1_bootstrap
-    - file: 08-estimation/2_confidence_intervals
-    - file: 08-estimation/3_ht_using_intervals
-
-- part: Reference
+  - file: 08-estimation/1_bootstrap
+  - file: 08-estimation/2_confidence_intervals
+  - file: 08-estimation/3_ht_using_intervals
+- caption: Reference
+  numbered: true
   chapters:
-    - file: how_to_read
-    - file: glossary
-    - file: genindex
+  - file: how_to_read
+  - file: glossary
+  - file: genindex
