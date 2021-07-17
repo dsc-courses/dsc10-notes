@@ -25,11 +25,12 @@ novice data scientist in mind.
 Building
 --------
 
-The textbook is written using [Jupyter Book](https://jupyterbook.org/intro.html)
-in a mix of Jupyter notebooks and MyST markdown. The development and build
-dependencies are managed using [Nix](https://nixos.org/). The below assumes that
-you have installed a recent version of Nix that has the "flake" feature enabled.
-For instructions, see the [Nix Wiki](https://nixos.wiki/wiki/Flakes).
+The textbook is written using [Jupyter Book](https://jupyterbook.org/intro.html).
+Pages are written as either Jupyter notebooks or MyST markdown. The development
+and build dependencies are managed using [Nix](https://nixos.org/). The below
+assumes that you have installed a recent version of Nix that has the "flake"
+feature enabled. For instructions, see the [Nix
+Wiki](https://nixos.wiki/wiki/Flakes).
 
 To build the HTML version of the textbook, first enter the development shell by
 invoking `nix develop` at the repository's root. Then run `make html` (or
