@@ -25,7 +25,7 @@ novice data scientist in mind.
 Building
 --------
 
-The textbook is written using [Jupyter Book](https://jupyterbook.org/intro.html).
+The textbook is developed using [Jupyter Book](https://jupyterbook.org/intro.html).
 Pages are written as either Jupyter notebooks or MyST markdown. The development
 and build dependencies are managed using [Nix](https://nixos.org/). The below
 assumes that you have installed a recent version of Nix that has the "flake"
