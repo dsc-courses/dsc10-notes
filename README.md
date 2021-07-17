@@ -80,8 +80,8 @@ generally not be invoked manually.
 
 ### Extensions
 
-Several extensions of MyST are used in this textbook. These extensions are
-defined by the files in `extensions/`. Their usage is described below.
+Several extensions of MyST markdown are used in this textbook. These extensions
+are defined by the files in `extensions/`. Their usage is described below.
 
 #### The "hiddenanswer" directive
 
