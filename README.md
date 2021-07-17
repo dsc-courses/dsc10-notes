@@ -5,7 +5,7 @@ Dive into Data Science
 ideas of statistics via programming and simulation instead of the manipulation
 of mathematical formulae. At the same time, the textbook does not assume that the
 reader has any experience in programming; instead, we learn "just enough"
-programming to do data science.  The textbook is written around the
+programming to do data science. The textbook is written around the
 [`babypandas`](https://github.com/babypandas-dev/babypandas) package; an
 opinionated proper subset of the popular `pandas` package designed with the
 novice data scientist in mind.
@@ -25,28 +25,24 @@ novice data scientist in mind.
 Building
 --------
 
-The build is performed in a Docker container. No dependencies other than Docker
-are needed.
+The textbook is written using [Jupyter Book](https://jupyterbook.org/intro.html)
+in a mix of Jupyter notebooks and MyST markdown. The development and build
+dependencies are managed using [Nix](https://nixos.org/). The below assumes that
+you have installed a recent version of Nix that has the "flake" feature enabled.
+For instructions, see the [Nix Wiki](https://nixos.wiki/wiki/Flakes).
 
-To build the HTML version, run `make html` in the repository's root. To build a
-PDF of the book, run `make pdf`.
-
-On the first build of the book, the Docker image will also be built -- this
-may take several minutes. Subsequent builds of the book will be much faster.
-
+To build the HTML version of the textbook, first enter the development shell by
+invoking `nix develop` at the repository's root. Then run `make html` (or
+simply `make`) to compile the book. The results will be placed in the
+`book/_build` directory.
 
 Developing
 ----------
 
 ### Getting Started
 
-Before working on the book, run `make init` in the project's root. This will
-build the Docker image used for compiling the textbook, install git commit
-hooks, etc.
-
-To launch a Jupyter notebook server inside the development environment, run
-`make jupyter`. To instead launch a shell inside the development environment,
-run `make shell`.
+Before working on the book, run `make init` in the project's root. Among other
+things, this will install git pre-commit hooks.
 
 ### Project Structure
 
@@ -60,20 +56,31 @@ be used to launch notebooks interactively.
 `extensions/` contains the extensions which define custom directives. See
 "Extensions" below.
 
-`notebooks/` contains the Jupyter notebooks that students will see if they open
-the interactive version of the textbook page. Some of these notebooks are
+`notebooks/book_pages` contains the Jupyter notebooks that students will see if
+they open the interactive version of the textbook page. These notebooks are
 automatically generated from the textbook pages by cleaning them of directive
 cells. Generating these notebooks is done by running `make notebooks` in the
 project root. This target is also run whenever the HTML version of the textbook
-is built (using `make html`). Other notebooks in this directory are
-"out-of-tree" notebooks that are not themselves textbook pages. 
+is built (using `make html`). For more information on how these notebooks are
+generated, see "Reader-Friendly Jupyter Notebooks" below.
+
+Notebooks in the `notebooks/out_of_tree` directory are "out-of-tree" notebooks
+that should not appear in the table of contents and are not textbook pages as
+such, but should still be published. They are *not* automatically generated. An
+example of an "out-of-tree" notebook is one demonstrating features of Jupyter
+notebooks, such as markdown cells and syntax highlighting. This is not a
+textbook page, but it should be published so that students can interact with the
+notebook on JupyterHub.
 
 `scripts/` contains various scripts used in the development and building of the
-textbook. These scripts should generally not be invoked manually.
+textbook, such as the script which generates the "cleaned" version of textbook
+pages that appear in the `notebooks/book_pages` directory. These scripts should
+generally not be invoked manually.
 
 ### Extensions
 
-Several extensions of MyST are used in this textbook.
+Several extensions of MyST are used in this textbook. These extensions are
+defined by the files in `extensions/`. Their usage is described below.
 
 #### The "hiddenanswer" directive
 
@@ -89,7 +96,8 @@ It is invoked as follows:
 This will create a "tabbed" container. The first tab will show the question.
 Clicking on the second tab shows the answer.
 
-Long answers or code can be included using the proper YAML syntax:
+Long answers or code can be included using the standard 
+[YAML syntax](https://yaml-multiline.info/) for multi-line strings. For example:
 
     ````{hiddenanswer}
     ---
@@ -106,7 +114,8 @@ Long answers or code can be included using the proper YAML syntax:
             return 42
         ```
     ````
-(note that an additional backtick is used in the directive code fence to allow us to nest a code block in the answer)
+(note that an additional backtick has been used in the directive code fence to
+allow us to nest a code block in the answer)
 
 #### The "jupytertip" and "jupytertiplist" directives
 
@@ -130,21 +139,23 @@ the text. This can be done with the "jupyterhublink" directive:
     ```{jupyterhublink} path/to/notebook/relative/to/repo/root.ipynb
     ```
 
+The URL used for the links is configured in `book/_config.yml`.
+
 ### Reader-Friendly Jupyter Notebooks
 
 This `notebooks` directory contains the reader-friendly Jupyter notebooks
 displayed to the user when they click the link to launch the current page in
 JupyterHub.
 
-Much of the textbook is written in Jupyter Notebooks which are then converted to
-HTML by the build process. Readers can click the rocket icon to launch the
-notebook version of the given page in a JupyterHub session.
-However, the Jupyter notebooks used as source documents may include directives
-and other content that might confuse readers. Therefore, as part of the build
-process, the source notebooks are transformed into "reader-friendly" notebooks
-and stored in the `notebooks/book_pages` directory (these are the notebooks that
-are launched when the user clicks the rocket link to interact with a page). The
-notebooks are made "reader-friendly" by several mechanisms described below.
+Many textbook pages are written as Jupyter Notebooks which are then converted to
+HTML by the build process. Readers can click the rocket icon on the HTML page to
+launch the notebook version in a JupyterHub session. However, the Jupyter
+notebooks used as source documents may include directives and other content that
+might confuse readers. Therefore, as part of the build process, the source
+notebooks are transformed into "reader-friendly" notebooks and stored in the
+`notebooks/book_pages` directory (these are the notebooks that are launched when
+the user clicks the rocket link to interact with a page). The notebooks are made
+"reader-friendly" by several mechanisms described below.
 
 `notebooks/out_of_tree/` contains various other Jupyter notebooks that should be
 available for interaction, but which are not themselves pages in the textbook.
@@ -170,8 +181,9 @@ are automatically-identified and converted to Markdown:
     This is a warning.
 
 
-This conversion occurs only if the directive is the only content of the cell.
-See `./scripts/make_reader_friendly_notebooks.py` for more information.
+**Note**: This conversion occurs only if the directive is the only content of
+the cell. See `./scripts/make_reader_friendly_notebooks.py` for more
+information.
 
 
 #### Hiddenanswer Cells

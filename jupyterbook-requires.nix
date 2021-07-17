@@ -87,7 +87,7 @@ self: super: {
     };
     doCheck = false;
     postPatch = ''
-    substituteInPlace setup.cfg --replace 'markdown-it-py~=1.0' ""
+      substituteInPlace setup.cfg --replace 'markdown-it-py~=1.0' ""
     '';
     buildInputs = [];
     checkInputs = [];
@@ -261,11 +261,12 @@ self: super: {
   "myst-parser" = super.buildPythonPackage rec {
     pname = "myst-parser";
     version = "0.13.7";
-    src = fetchurl {
-      url = "https://files.pythonhosted.org/packages/2c/40/db9563e8b57710ea9742b74e5228a4bcb8130aceeeab71f8315ca79a7b57/myst_parser-0.13.7-py3-none-any.whl";
-      sha256 = "06cj4kabmdihhsjaf0pd9gf925xby7bkh1hb13z6b24fvas5a0r6";
+    src = pkgs.fetchFromGitHub {
+      owner = "executablebooks";
+      repo = "MyST-Parser";
+      rev = "v0.13.7";
+      sha256 = "sha256-iBEPZG+Dmpcx1WHxWlJOjoctHuAw+J55asAbjmsvEos=";
     };
-    format = "wheel";
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
@@ -383,5 +384,75 @@ self: super: {
       self."sphinx"
     ];
   };
+
+  "sphinx-tabs" = super.buildPythonPackage rec {
+    pname = "sphinx-tabs";
+    version = "3.1.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/36/56/506dd97607b2f684612f5d927721141a4fdb644e353a300859b9fb81c39c/sphinx_tabs-3.1.0-py3-none-any.whl";
+      sha256 = "0rwajmil0h28nx5if3aq396s2ma4qbzi78qrhicvhpn09gl99pv3";
+    };
+    format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [
+      self."docutils"
+      self."pygments"
+      self."sphinx"
+    ];
+  };
+
+  "babel" = super.buildPythonPackage rec {
+    pname = "babel";
+    version = "2.9.1";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/aa/96/4ba93c5f40459dc850d25f9ba93f869a623e77aaecc7a9344e19c01942cf/Babel-2.9.1-py2.py3-none-any.whl";
+      sha256 = "1yfyn32hlv60sr0knymcb4msvd3slmcv4z5ny08wsdyrj4my2jdb";
+    };
+    format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [
+      self."pytz"
+    ];
+  };
+
+  "sphinxcontrib-htmlhelp" = super.buildPythonPackage rec {
+    pname = "sphinxcontrib-htmlhelp";
+    version = "2.0.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/63/40/c854ef09500e25f6432dcbad0f37df87fd7046d376272292d8654cc71c95/sphinxcontrib_htmlhelp-2.0.0-py2.py3-none-any.whl";
+      sha256 = "01zdqq30si8yhvmy9w0v4idff4mc5pjs1v2r5gnf6ykrzcyj84nl";
+    };
+    format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [];
+  };
+
+  "sphinxcontrib-serializinghtml" = super.buildPythonPackage rec {
+    pname = "sphinxcontrib-serializinghtml";
+    version = "1.1.5";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/c6/77/5464ec50dd0f1c1037e3c93249b040c8fc8078fdda97530eeb02424b6eea/sphinxcontrib_serializinghtml-1.1.5-py2.py3-none-any.whl";
+      sha256 = "1zcjkfcjisxrgs3fk59zidzbbh2zkzbxgn7alz9p2i46mq09laim";
+    };
+    format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [];
+  };
+
+  "sphinx" = super.sphinx.overrideAttrs ( old: {
+    version = "3.5.4";
+  });
 
 }

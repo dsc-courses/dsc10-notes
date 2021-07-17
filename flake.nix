@@ -32,7 +32,7 @@
         doCheck = false;
         buildInputs = [];
         checkInputs = [];
-        nativeBuildInputs = [];
+        nativeBuildInputs = [python.pkgs.ipykernel];
         propagatedBuildInputs = with python.pkgs; [
           click
           jsonschema
@@ -48,9 +48,11 @@
           sphinx-jupyterbook-latex
           sphinx-multitoc-numbering
           sphinx-panels
+          sphinx-tabs
           sphinx-thebe
           sphinx-togglebutton
           sphinxcontrib-bibtex
+          jupyter_client
         ];
       };
 
