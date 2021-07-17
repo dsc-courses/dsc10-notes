@@ -1,12 +1,6 @@
 #!/bin/sh
 
 echo "[pre-commit hook] Clearing notebook outputs..."
-docker run \
-    --mount type=bind,src=$(pwd),target=/document \
-    dive_into_data_science:latest \
-    bash -c " \
-    cd /document/book && \
-    /home/runner/env/bin/python \
-    /document/scripts/clear_notebook_outputs.py"
-
+cd book
+python ../scripts/clear_notebook_outputs.py
 git add .
