@@ -1,3 +1,6 @@
+export PYTHONPATH := ./extensions:${PYTHONPATH}
+
+
 .PHONY: html
 html: notebooks
 	# build the HTML version of the textbook
@@ -8,6 +11,7 @@ html: notebooks
 notebooks:
 	# take the notebooks used as source documents and remove tagged cells,
 	# placing them in the notebooks/ directory.
+	mkdir -p notebooks/book_pages
 	cd notebooks/book_pages && \
 		python ../../scripts/make_reader_friendly_notebooks.py ../../book
 

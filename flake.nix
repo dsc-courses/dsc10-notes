@@ -58,18 +58,18 @@
 
     babypandas = python.pkgs.buildPythonPackage {
       pname = "babypandas";
-      version = "0.1.7";
+      version = "0.1.6";
       src = pkgs.fetchFromGitHub {
-        owner = "eldridgejm";
+        owner = "babypandas-dev";
         repo = "babypandas";
-        rev = "a186aee54afb329cb4c5aa41d17e88986e9afa00";
-        sha256 = "sha256-rTmcciCd6Yxl+LYjxFXmu+Sk3TDhFZfcGPYjOCVvt8Y=";
+        rev = "dc51b243cda75b85a7e8bbe6ce2a5412d895755a";
+        sha256 = "sha256-37TvMfGX2CmwA3b/9tb28lkBVNjkrjwHCJEOlSYKrkI=";
       };
 
-      propagatedBuildInputs = [
-        python.pkgs.pandas
-        python.pkgs.numpy
-      ];
+      nativeBuildInputs = with pkgs.python38Packages; [ pytest pytestrunner ];
+      propagatedBuildInputs = with pkgs.python38Packages; [ pandas ];
+      doCheck = false;
+
     };
 
     in
