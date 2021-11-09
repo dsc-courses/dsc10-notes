@@ -16,7 +16,7 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Build HTML version of book
-        run: nix --version
+        run: nix develop -c make html
       - uses: actions/upload-artifact@v2
         with:
             name: HTML
