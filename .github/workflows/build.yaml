@@ -12,7 +12,8 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v14.1
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          install_url: https://nixos-nix-install-tests.cachix.org/serve/vij683ly7sl95nnhb67bdjjfabclr85m/install
+          install_options: '--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve'
       - name: Build HTML version of book
         run: nix --extra-experimental-features develop --command make html
       - uses: actions/upload-artifact@v2
