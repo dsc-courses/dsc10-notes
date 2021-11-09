@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build HTML version of book
-        run: nix develop --command make html
+        run: nix --version
       - uses: actions/upload-artifact@v2
         with:
             name: HTML
