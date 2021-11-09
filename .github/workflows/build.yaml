@@ -4,18 +4,13 @@ on:
             - main
 jobs:
   build-html:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Build HTML
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Nix
-        uses: cachix/install-nix-action@v14.1
-        with:
-          install_url: https://nixos-nix-install-tests.cachix.org/serve/vij683ly7sl95nnhb67bdjjfabclr85m/install
-          install_options: '--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve'
       - name: Build HTML version of book
-        run: nix --extra-experimental-features develop --command make html
+        run: nix develop --command make html
       - uses: actions/upload-artifact@v2
         with:
             name: HTML
