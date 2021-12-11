@@ -23,6 +23,7 @@
         buildInputs = [
           pkgs.gnumake
           pkgs.poetry
+          pkgs.gccStdenv
         ];
 
         shellHook = ''
