@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Plotting with Babypandas &#8212; Dive into Data Science</title>
+    <title>14. Plotting with Babypandas &#8212; DSC 10 Course Notes</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,32 +34,35 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. Scatter Plots" href="scatter.html" />
-    <link rel="prev" title="12. Defining and Applying Functions" href="../02-data_sets/apply.html" />
+    <link rel="next" title="15. Scatter Plots" href="scatter.html" />
+    <link rel="prev" title="13. Merging data sets" href="../02-data_sets/merging.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -77,22 +80,16 @@
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
-      <h1 class="site-logo" id="site-title">Dive into Data Science</h1>
+      
+      <h1 class="site-logo" id="site-title">DSC 10 Course Notes</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../front.html">
-   Dive Into Data Science
-  </a>
- </li>
-</ul>
-<p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   1. Getting Started
  </span>
@@ -151,7 +148,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   2. NumPy and Babypandas
  </span>
@@ -187,8 +184,13 @@
    12. Defining and Applying Functions
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/merging.html">
+   13. Merging data sets
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   3. Visualization
  </span>
@@ -196,106 +198,87 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   13. Plotting with Babypandas
+   14. Plotting with Babypandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scatter.html">
-   14. Scatter Plots
+   15. Scatter Plots
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="line.html">
-   15. Line graphs
+   16. Line graphs
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="histogram.html">
-   16. Bar charts
+  <a class="reference internal" href="bar.html">
+   17. Bar charts
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  4. Advanced Data Manipulation
+  4. Probability and Simulation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../04-advanced_data_manipulation/merging.html">
-   17. Merge
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  5. Probability and Simulation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-probability_and_simulation/probability_and_simulation.html">
+  <a class="reference internal" href="../04-probability_and_simulation/probability_and_simulation.html">
    18. Probability and simulation
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  6. Populations and Samples
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../06-populations_and_samples/1_populations_and_samples.html">
+  <a class="reference internal" href="../04-probability_and_simulation/1_populations_and_samples.html">
    19. Populations and Samples
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06-populations_and_samples/2_parameters_and_statistics.html">
+  <a class="reference internal" href="../04-probability_and_simulation/2_parameters_and_statistics.html">
    20. Parameters and statistics
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  7. Hypothesis Testing
+  5. Hypothesis Testing
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../07-hypothesis_testing/1_hypothesis_tests.html">
+  <a class="reference internal" href="../05-hypothesis_testing/1_hypothesis_tests.html">
    21. Hypothesis Testing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../07-hypothesis_testing/2_permutation_tests.html">
+  <a class="reference internal" href="../05-hypothesis_testing/2_permutation_tests.html">
    22. Permutation Tests
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  8. Estimation
+  6. Estimation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../08-estimation/1_bootstrap.html">
+  <a class="reference internal" href="../06-estimation/1_bootstrap.html">
    23. Parameter Estimation and Bootstrap
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../08-estimation/2_confidence_intervals.html">
+  <a class="reference internal" href="../06-estimation/2_confidence_intervals.html">
    24. Confidence Intervals
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../08-estimation/3_ht_using_intervals.html">
+  <a class="reference internal" href="../06-estimation/3_ht_using_intervals.html">
    25. Hypothesis Tests for Parameters using Confidence Intervals
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
@@ -303,7 +286,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../how_to_read.html">
-   26. How To Read This Book
+   26. How To Read These Notes
   </a>
  </li>
  <li class="toctree-l1">
@@ -311,9 +294,26 @@
    27. All Terms and Tips
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../examples/examples.html">
+   28. Example Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/blank_notebook.html">
+     28.1. Blank Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../genindex.html">
-   28. Index
+   29. Index
   </a>
  </li>
 </ul>
@@ -424,11 +424,11 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-new-dataset-climate-csv">
-   13.1. A new dataset:
+   14.1. A new dataset:
    <code class="docutils literal notranslate">
     <span class="pre">
      climate.csv
@@ -438,79 +438,79 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#categorical-vs-numerical-data">
-   13.2. Categorical vs. Numerical Data
+   14.2. Categorical vs. Numerical Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chart-types">
-   13.3. Chart types
+   14.3. Chart types
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-proportions">
-   13.4. Introduction to proportions
+   14.4. Introduction to proportions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#your-first-chart">
-   13.5. Your first chart
+   14.5. Your first chart
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distributions">
-   13.6. Distributions
+   14.6. Distributions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#histograms">
-     13.6.1. Histograms
+     14.6.1. Histograms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setting-the-level-of-detail">
-     13.6.2. Setting the level of detail
+     14.6.2. Setting the level of detail
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-math-behind-histograms">
-     13.6.3. The math behind histograms
+     14.6.3. The math behind histograms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#categorical-distributions">
-     13.6.4. Categorical distributions
+     14.6.4. Categorical distributions
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trends-over-time">
-   13.7. Trends over time
+   14.7. Trends over time
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparing-groups">
-   13.8. Comparing groups
+   14.8. Comparing groups
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#relationships-between-features">
-   13.9. Relationships between features
+   14.9. Relationships between features
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparing-charts">
-   13.10. Comparing charts
+   14.10. Comparing charts
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#overlaying-scatters-lines-and-histograms">
-     13.10.1. Overlaying scatters, lines, and histograms
+     14.10.1. Overlaying scatters, lines, and histograms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparing-bar-charts">
-     13.10.2. Comparing bar charts
+     14.10.2. Comparing bar charts
     </a>
    </li>
   </ul>
@@ -526,11 +526,11 @@
         
               <div>
                 
-  <div class="section" id="plotting-with-babypandas">
-<h1><span class="section-number">13. </span>Plotting with Babypandas<a class="headerlink" href="#plotting-with-babypandas" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="plotting-with-babypandas">
+<h1><span class="section-number">14. </span>Plotting with Babypandas<a class="headerlink" href="#plotting-with-babypandas" title="Permalink to this headline">¶</a></h1>
 <p>A picture is worth a thousand words, and that’s doubly true in data science. Remember that data science often involves finding <em>trends</em> and <em>associations</em> between variables. It can be hard to spot these trends when the data is presented in the form of a table, but easy when we’re able to <em>visualize</em> the data as a plot. Luckily, babypandas makes it easy to generate plots, as we’ll now see.</p>
 <div class="section" id="a-new-dataset-climate-csv">
-<h2><span class="section-number">13.1. </span>A new dataset: <code class="docutils literal notranslate"><span class="pre">climate.csv</span></code><a class="headerlink" href="#a-new-dataset-climate-csv" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.1. </span>A new dataset: <code class="docutils literal notranslate"><span class="pre">climate.csv</span></code><a class="headerlink" href="#a-new-dataset-climate-csv" title="Permalink to this headline">¶</a></h2>
 <p>In this chapter, we’ll be working with <code class="docutils literal notranslate"><span class="pre">climate.csv</span></code>, a data set compiled from a number of queries from the NOAA (National Oceanic and Atmospheric Administration) website.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -691,7 +691,7 @@
 <p>The columns <strong>temperature</strong>, <strong>rainfall</strong>, and <strong>zndx</strong> are the average temperature in degrees Fahrenheit, total rainfall in inches, and the Palmer Z Index for that specific year/month/region, respectively. I don’t know about yours, but my kindergarten didn’t teach the Palmer Z Index; it turns out that it measures drought-like conditions. If the Z Index is a large negative number, that means there is a severe drought.</p>
 </div>
 <div class="section" id="categorical-vs-numerical-data">
-<h2><span class="section-number">13.2. </span>Categorical vs. Numerical Data<a class="headerlink" href="#categorical-vs-numerical-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.2. </span>Categorical vs. Numerical Data<a class="headerlink" href="#categorical-vs-numerical-data" title="Permalink to this headline">¶</a></h2>
 <p>Data comes in different forms – choosing the right type of visualization depends on understanding the form that our data takes. Two of the most common forms that data comes in are <em>categorical</em> and <em>numerical</em>. We’ll defined these in a moment, but first we need some new terminology.</p>
 <p>An <span class="target" id="index-0"></span><strong><a class="reference external" href="../glossary.html#term-individual">individual</a></strong> (or <em>instance</em>) is a particular person/place/thing for which data has been collected. Usually, each <em>row</em> of our dataframe corresponds to a unique individual.</p>
 <p>A <span class="target" id="index-1"></span><strong><a class="reference external" href="../glossary.html#term-variable">variable</a></strong> (or <em>feature</em>) is a property that is recorded for each individual. For example, the <em>temperature</em> is a variable in our new data set, as is the month. Usually, each <em>column</em> of our DataFrame corresponds to a different variable.</p>
@@ -730,7 +730,7 @@
 </div>
 </div>
 <div class="section" id="chart-types">
-<h2><span class="section-number">13.3. </span>Chart types<a class="headerlink" href="#chart-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.3. </span>Chart types<a class="headerlink" href="#chart-types" title="Permalink to this headline">¶</a></h2>
 <p>There are many different types of visualizations, from pie charts to word clouds. In this textbook, we’ll mostly focus on the following four: scatter plots, line graphs, bar charts, and histograms. Histograms are perhaps the <em>most</em> important of these for our purposes, and probably the type of visualization that you’re least familiar with. We’ll be using histograms quite frequently in the rest of this textbook, so it will pay dividends to get to know them well.</p>
 <p>Which of these four visualizations is the correct one for our purposes depends on the form that our data takes (numerical vs. categorical), as well as our goals for visualizing the data. Informally, here’s how each plot type is used:</p>
 <ul class="simple">
@@ -742,7 +742,7 @@
 <p>Babypandas makes it easy to produce any of these chart types. In fact, we only need to learn one new method, the <code class="docutils literal notranslate"><span class="pre">.plot</span></code> method.</p>
 </div>
 <div class="section" id="introduction-to-proportions">
-<h2><span class="section-number">13.4. </span>Introduction to proportions<a class="headerlink" href="#introduction-to-proportions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.4. </span>Introduction to proportions<a class="headerlink" href="#introduction-to-proportions" title="Permalink to this headline">¶</a></h2>
 <p>One quick way to explore our data is to see how much of the data satisfies a certain condition.</p>
 <p>Say we are curious – for the sake of exploration – about how many of reported temperatures were at or below the freezing point (32 degrees Fahrenheit). We already know how to perform a query to only get the rows where this is true.</p>
 <div class="cell docutils container">
@@ -820,7 +820,7 @@
 <p>That’s all on proportions for now, but don’t worry! We’ll work with proportions again in the future.</p>
 </div>
 <div class="section" id="your-first-chart">
-<h2><span class="section-number">13.5. </span>Your first chart<a class="headerlink" href="#your-first-chart" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.5. </span>Your first chart<a class="headerlink" href="#your-first-chart" title="Permalink to this headline">¶</a></h2>
 <p>There’s an age-old-addage that “a picture is worth a thousand words” – the same often holds true for data science!</p>
 <p>Throughout the exploration process, we’ll be relying on charts to help us visualize and ultimately understand the data. While Python has many libraries that can create charts, Babypandas has the capability built in by using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method. With this method, we can create many types of charts – including some you may be familiar with like bar charts and line charts, as well as others like histograms and scatter plots.</p>
 <p>The general syntax to create a chart using Babypandas is:</p>
@@ -900,48 +900,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">ea93a57d5afd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">icecream</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Cones_Sold&#39;</span><span class="p">)</span>
-
-<span class="nn">/nix/store/mq2d2m2rf4m0hyrcj5qrh8yal4ff4zpc-python3-3.8.9-env/lib/python3.8/site-packages/babypandas/bpd.py</span> in <span class="ni">plot</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">755</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">756</span><span class="s2">         f = _lift_to_pd(self._pd.plot)</span>
-<span class="ne">--&gt; </span><span class="mi">757</span><span class="s2">         return f(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span><span class="s2">     # IO</span>
-
-<span class="nn">/nix/store/mq2d2m2rf4m0hyrcj5qrh8yal4ff4zpc-python3-3.8.9-env/lib/python3.8/site-packages/babypandas/bpd.py</span> in <span class="ni">closure</span><span class="nt">(*vargs, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1531</span><span class="s2">                   for (k, x) in kwargs.items()}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1532</span><span class="s2"> </span>
-<span class="ne">-&gt; </span><span class="mi">1533</span><span class="s2">         a = func(*vargs, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1534</span><span class="s2">         if isinstance(a, pd.DataFrame):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1535</span><span class="s2">             return DataFrame(data=a)</span>
-
-<span class="nn">/nix/store/mq2d2m2rf4m0hyrcj5qrh8yal4ff4zpc-python3-3.8.9-env/lib/python3.8/site-packages/pandas/plotting/_core.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">873</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span><span class="s2">     def __call__(self, *args, **kwargs):</span>
-<span class="ne">--&gt; </span><span class="mi">875</span><span class="s2">         plot_backend = _get_plot_backend(kwargs.pop(&quot;backend&quot;, None))</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span><span class="s2">         x, y, kind, kwargs = self._get_call_args(</span>
-
-<span class="nn">/nix/store/mq2d2m2rf4m0hyrcj5qrh8yal4ff4zpc-python3-3.8.9-env/lib/python3.8/site-packages/pandas/plotting/_core.py</span> in <span class="ni">_get_plot_backend</span><span class="nt">(backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1784</span><span class="s2">             import pandas.plotting._matplotlib as module</span>
-<span class="g g-Whitespace">   </span><span class="mi">1785</span><span class="s2">         except ImportError:</span>
-<span class="ne">-&gt; </span><span class="mi">1786</span><span class="s2">             raise ImportError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1787</span><span class="s2">                 &quot;matplotlib is required for plotting when the &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1788</span><span class="s2">                 &#39;default backend &quot;matplotlib&quot; is selected.&#39;</span>
-
-<span class="ne">ImportError</span>: matplotlib is required for plotting when the default backend &quot;matplotlib&quot; is selected.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Flavor&#39;&gt;
 </pre></div>
 </div>
+<img alt="../_images/intro_40_1.png" src="../_images/intro_40_1.png" />
 </div>
 </div>
 <p>You’ve done it! We made a chart from a table. Perhaps you’re already getting some ideas for how useful these charts can be – read on to see just how much we rely on them while exploring our data.</p>
 </div>
 <div class="section" id="distributions">
-<h2><span class="section-number">13.6. </span>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.6. </span>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
 <p>As you work with data scientists and statisticians throughout your life, you’ll often hear people asking about the <span class="target" id="index-6"></span><strong><a class="reference external" href="../glossary.html#term-distribution">distribution</a></strong> of a feature.</p>
 <p>This generally boils down to answering three important questions about a feature:</p>
 <ol class="simple">
@@ -956,7 +924,7 @@
 <p>Well, the first two seem pretty approachable through metrics that we already know how to calculate – such as using the mean of a feature to find the typical value, or calculating the min and max to get a range of possible values. But the third question seems a lot more challenging to represent just by using numbers.</p>
 <p>But we have the power of charts! And we can use a specific type of chart, called a histogram, to answer all three of those questions.</p>
 <div class="section" id="histograms">
-<h3><span class="section-number">13.6.1. </span>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.6.1. </span>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
 <p>A <span class="target" id="index-7"></span><strong><a class="reference external" href="../glossary.html#term-histogram">histogram</a></strong> is a type of chart that gives us a visual representation of the distribution of a numerical feature by expressing how many times the data shows up in a given range.</p>
 <p>We can create a histogram of our recorded temperatures by simply specifying <code class="docutils literal notranslate"><span class="pre">kind='hist'</span></code> and setting <code class="docutils literal notranslate"><span class="pre">y</span></code> to the name of the column we’re intreseted in. This example also specifies two additional arguments that may seem mysterious, but soon you’ll know what they do!</p>
 <div class="cell docutils container">
@@ -966,6 +934,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_49_1.png" src="../_images/intro_49_1.png" />
+</div>
 </div>
 <p>You can think of a histogram as similar to a bar chart in concept. Each bar corresponds to a range of values called a <strong>bin</strong>, for example at the very left of the chart there is a bin from zero degrees to ten degrees. The height of each bar corresponds to how much of the data falls into that bin.</p>
 <p>Important to note: the bins of a histogram include the lower number, but <em>exclude</em> the higher number. Also, we’ll usually express these bins using the mathematical notation for intervals so the bin containing temperatures from 0 degrees to 9.99999… degrees is written as <span class="math notranslate nohighlight">\([0, 10)\)</span>. This means that if a temperature was equal to 10, it would show up in the bin <em>starting</em> with 10, e.g. <span class="math notranslate nohighlight">\([10, 20)\)</span>.</p>
@@ -973,7 +947,7 @@
 <p>All sorts of information about our data can be gleaned from just the histogram. For example, in the histogram above we can tell that the bin with the greatest frequency of values was <span class="math notranslate nohighlight">\([60, 70)\)</span> since that bar is the highest, whereas no data fell in the bin <span class="math notranslate nohighlight">\([90, 100)\)</span> since that bar doesn’t show up at all! By thinking about where the balance point of the shape is, we can find the mean of the feature. By looking at the extremes of our histogram we know that our temperature data is never greater than 90, and never less than 0. But, since the bars at the extremes are short, we know that it’s more likely for us to find temperatures between 20 and 80 degrees. And, we can notice that the mass of the histogram bunched up towards the higher end but stretched out on the low end, so it’s more likely for us to see a high value but every once in a while we might find a <em>very</em> low value.</p>
 </div>
 <div class="section" id="setting-the-level-of-detail">
-<h3><span class="section-number">13.6.2. </span>Setting the level of detail<a class="headerlink" href="#setting-the-level-of-detail" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.6.2. </span>Setting the level of detail<a class="headerlink" href="#setting-the-level-of-detail" title="Permalink to this headline">¶</a></h3>
 <p>You’ll notice that in our example above, we also specified a <code class="docutils literal notranslate"><span class="pre">bins</span></code> argument. This argument allows us to specify how many bins we want our data split up into, or even allows us to set the range for each bin manually. But why does it matter?</p>
 <p>The number of bins we use to draw our histogram has a intrinsic effect on the level of detail of our histogram. It’s probably best to see this point illustrated, so below you can see the histogram for the same data above, but animated as our number of bins changes from one-hundred down to two.</p>
 <p><img alt="The level of detail decreases, but it becomes easier to see trends" src="../_images/histogram-detail.gif" /></p>
@@ -984,6 +958,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">climate</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_58_1.png" src="../_images/intro_58_1.png" />
 </div>
 </div>
 <p>By default, the bins will collectively range from the minimum value of the feature to the maximum value. So, we can calculate the width of each bin as
@@ -1000,6 +980,12 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_63_1.png" src="../_images/intro_63_1.png" />
+</div>
 </div>
 <p>But, recall from <a class="reference internal" href="../02-data_sets/arrays.html"><span class="doc">Lists and Arrays</span></a> that we can make better use of a <em>range</em> here. By passing in the range from -10 to 90+ with a step size of 25, we achieve the same result. Just be careful to remember that histogram bins <em>and</em> ranges are <em>both</em> exclusive on the upper bound. So, if we want our bins to end with <span class="math notranslate nohighlight">\([65, 90)\)</span>, then the endpoint of our range must be greater than 90! A common technique to make sure your desired endpoint is included within a range is to add the step size to the value.</p>
 <div class="cell docutils container">
@@ -1008,6 +994,12 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">climate</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_65_1.png" src="../_images/intro_65_1.png" />
 </div>
 </div>
 <div class="admonition tip" id="tip-1">
@@ -1025,7 +1017,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="section" id="the-math-behind-histograms">
-<h3><span class="section-number">13.6.3. </span>The math behind histograms<a class="headerlink" href="#the-math-behind-histograms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.6.3. </span>The math behind histograms<a class="headerlink" href="#the-math-behind-histograms" title="Permalink to this headline">¶</a></h3>
 <p>Often, we use histograms to quickly get an intuition about the <em>shape</em> of our data. However, if we study the numbers on the vertical axis a bit closer we can extract important information about the proportion of data falling in each bin. We just need to make sure we set <code class="docutils literal notranslate"><span class="pre">density=True</span></code> when we call the plotting method.</p>
 <p>Recall from our introduction earlier in this chapter that proportions are almost always more insightful than raw counts. Unfortunately, the default behavior of the plotting method is to plot a histogram of – you guessed it – raw counts (yuck!).</p>
 <div class="cell docutils container">
@@ -1033,6 +1025,12 @@ $<span class="math notranslate nohighlight">\(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">climate</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nice_bins</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_71_1.png" src="../_images/intro_71_1.png" />
 </div>
 </div>
 <p>Notice that the shape of our plot remains the same, only our vertical axis changes.</p>
@@ -1042,10 +1040,21 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_73_1.png" src="../_images/intro_73_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.0175</span> <span class="o">+</span> <span class="mf">0.02</span> <span class="o">+</span> <span class="mf">0.014</span> <span class="o">+</span> <span class="mf">0.002</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.535
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1098,7 @@ $<span class="math notranslate nohighlight">\(
 <p>See how we’re able to use bin height and bin width to reverse the calculation and arrive at the proportion?</p>
 </div>
 <div class="section" id="categorical-distributions">
-<h3><span class="section-number">13.6.4. </span>Categorical distributions<a class="headerlink" href="#categorical-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.6.4. </span>Categorical distributions<a class="headerlink" href="#categorical-distributions" title="Permalink to this headline">¶</a></h3>
 <p>If we’re working with a categorical variable it’s important to look at the frequency of the categories. For this, we can use a bar chart in conjunction with <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> and <code class="docutils literal notranslate"><span class="pre">.count</span></code>.</p>
 <p>The resulting chart is no longer a histogram since we’re no longer working with numerical bins, but the end result is similar: we get a sense of the frequency of different values of the feature. And, similar to the histogram, it is preferrable to work with proportions of frequency instead of raw counts. We accomplish this by performing element-wise division on our counts by the total number of rows in our data.</p>
 <div class="cell docutils container">
@@ -1107,12 +1116,18 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;region&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_80_1.png" src="../_images/intro_80_1.png" />
+</div>
 </div>
 <p>Unsurprisingly, the proportion of data is equal for every single climate region. That’s what we expect in this situation (each climate region has a measurement for all months from 2000 to 2019). Since we know that we should expect all of the climate regions to have the same proportion of measurements, if the chart showed us that the frequency <em>wasn’t</em> equal then we’d know something was wrong with our data!</p>
 </div>
 </div>
 <div class="section" id="trends-over-time">
-<h2><span class="section-number">13.7. </span>Trends over time<a class="headerlink" href="#trends-over-time" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.7. </span>Trends over time<a class="headerlink" href="#trends-over-time" title="Permalink to this headline">¶</a></h2>
 <p>Since our new data set contains a column to progresses through time (the year), it’s possible for us to discover trends in our data. For example, how has average temperature changed over time?</p>
 <p>We can group by the year and aggregate using the mean, but once again it’s challenging to spot trends just from a series of numbers.</p>
 <div class="cell docutils container">
@@ -1126,6 +1141,81 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1898</th>
+      <td>50.659259</td>
+    </tr>
+    <tr>
+      <th>1899</th>
+      <td>50.170370</td>
+    </tr>
+    <tr>
+      <th>1900</th>
+      <td>51.824074</td>
+    </tr>
+    <tr>
+      <th>1901</th>
+      <td>50.826852</td>
+    </tr>
+    <tr>
+      <th>1902</th>
+      <td>50.623148</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>53.503704</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>54.004630</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>53.592593</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>52.690741</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>51.850000</td>
+    </tr>
+  </tbody>
+</table>
+<p>122 rows × 1 columns</p>
+</div></div></div>
 </div>
 <p>The human brain is hardwired to detect patterns, but in order to see a pattern amongst numbers, we need to keep all of the numbers in our head. Visualizations like <span class="target" id="index-9"></span><strong><a class="reference external" href="../glossary.html#term-line-chart">line charts</a></strong> address this issue!</p>
 <p>Once again, the column that we want to be the horizontal axis is our table index, so we set <em>x</em> to <code class="docutils literal notranslate"><span class="pre">None</span></code> (or don’t specify it).</p>
@@ -1134,6 +1224,12 @@ $<span class="math notranslate nohighlight">\(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_over_time</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_86_1.png" src="../_images/intro_86_1.png" />
 </div>
 </div>
 <p>A word of caution: notice that that the chart boundaries shrink to fit the data as closely as possible. While this can be nice because it allows us to focus on the changes in the data, it can also be very misleading! For example, the average temperature from 1963 to 1972 never varied by more than a degree, but the line plot still looks very dramatic!</p>
@@ -1145,11 +1241,17 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_88_1.png" src="../_images/intro_88_1.png" />
+</div>
 </div>
 <p>This is another situation where <em>domain knowledge</em> is necessary to avoid jumping to false conclusions. How important is a single degree of change in average temperature? We should always be careful not to let charts scare us.</p>
 </div>
 <div class="section" id="comparing-groups">
-<h2><span class="section-number">13.8. </span>Comparing groups<a class="headerlink" href="#comparing-groups" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.8. </span>Comparing groups<a class="headerlink" href="#comparing-groups" title="Permalink to this headline">¶</a></h2>
 <p>We’ve seen a bar chart as the very first example of a chart in this chapter, and we’ve seen it again to compare the proportions of categories. In general, <span class="target" id="index-10"></span><strong><a class="reference external" href="../glossary.html#term-bar-chart">bar charts</a></strong> are used to give <em>context</em> when comparing the values assigned to different categories. While sometimes our groups are already separated, like in our very first examples, we also know from our experience with groupby that perhaps the most common way of assigning a value to a category is by using groupby and aggregation!</p>
 <p>Anyway, once we have data with a single row per group, the bar chart lets us easily spot disparities.</p>
 <p>To illustrate, let’s see what the <em>minimum</em> reported temperature is for each climate region.</p>
@@ -1164,6 +1266,12 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;region&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_92_1.png" src="../_images/intro_92_1.png" />
+</div>
 </div>
 <p>The bar chart highlights a considerable difference between the minimum temperature in the regions. We can quickly pick out the regions with the lowest and highest minimum temperatures (there are even some <em>negative</em> temperatures!)… but it’s a little challenging to read the labels when they’re vertical like that.</p>
 <p>There are actually two changes we should consider when making a bar chart. First, we can make the whole chart horizontal by setting <code class="docutils literal notranslate"><span class="pre">kind='barh'</span></code>. Second, we can make it easier to find patterns in the ranking of the regions by first sorting our table, then plotting.</p>
@@ -1177,11 +1285,17 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;region&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_95_1.png" src="../_images/intro_95_1.png" />
+</div>
 </div>
 <p>Now that the bar chart is sorted based on the minimum temperature – essentially ranking the climate regions – it becomes much easier for us to spot additional patterns. For instance, did you notice that the regions that contain ‘South’ have some of the highest minimum temperatures? Also, there’s a really big drop between the minimum temperature in the Northeast region to the Northern Rockies and Plains region – more than a 10 degree difference! I wonder why that is… sounds like some additional domain research is necessary.</p>
 </div>
 <div class="section" id="relationships-between-features">
-<h2><span class="section-number">13.9. </span>Relationships between features<a class="headerlink" href="#relationships-between-features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.9. </span>Relationships between features<a class="headerlink" href="#relationships-between-features" title="Permalink to this headline">¶</a></h2>
 <p>So far, we’ve seen charts that let us work with a single feature, charts that let us compare a feature versus time, and charts that let us compare a feature versus a category – how about comparing a numeric feature against another numeric feature?</p>
 <p>The <span class="target" id="index-11"></span><strong><a class="reference external" href="../glossary.html#term-scatter-plot">scatter plot</a></strong> is a fundamental chart which takes in a pairs of values, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, then plots each pair as a point on a coordinate grid. Our use of the scatter plot is almost always motivated by a core question: <em>how is the value of <span class="math notranslate nohighlight">\(y\)</span> related to the value of <span class="math notranslate nohighlight">\(x\)</span>?</em></p>
 <p>Conviently, we still have two more numerical features in the data set that we haven’t worked with much: rainfall the the Palmer Z Index (ZNDX). Furthermore, – unless you’ve looked it up – we’re not even sure what ZNDX is! How about we use a scatter plot to explore the extent to which our ZNDX feature depends on rainfall.</p>
@@ -1191,6 +1305,12 @@ $<span class="math notranslate nohighlight">\(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">climate</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;rainfall&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;zndx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rainfall&#39;, ylabel=&#39;zndx&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_99_1.png" src="../_images/intro_99_1.png" />
 </div>
 </div>
 <p>Looks interesting, right? There’s a very clear upwards slope to the data – looks like we found a relationship after all.</p>
@@ -1203,11 +1323,17 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;temperature&#39;, ylabel=&#39;zndx&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_104_1.png" src="../_images/intro_104_1.png" />
+</div>
 </div>
 <p>If instead we saw a downward slope, then there would have been <em>negative association</em> visible… But since that is not the case, in this situation we consider there to be <em>no association</em> between ZNDX and temperature.</p>
 </div>
 <div class="section" id="comparing-charts">
-<h2><span class="section-number">13.10. </span>Comparing charts<a class="headerlink" href="#comparing-charts" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.10. </span>Comparing charts<a class="headerlink" href="#comparing-charts" title="Permalink to this headline">¶</a></h2>
 <p>According to <a class="reference external" href="https://www.noaa.gov/news/2019-was-2nd-wettest-year-on-record-for-us">an article by the NOAA</a>, 2019 was the second wettest year in the United States. In contrast, the year 1930 was the start of the ‘Dust Bowl’ – a historical period of some of the most severe droughts in the US.</p>
 <p>Can we explore how the data recorded during 2019 differs from 1930? To explore this aspect of the data, it’ll be useful to know how to compare what the <em>charts</em> look like for 2019 versus 1930.</p>
 <div class="margin sidebar">
@@ -1223,7 +1349,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="section" id="overlaying-scatters-lines-and-histograms">
-<h3><span class="section-number">13.10.1. </span>Overlaying scatters, lines, and histograms<a class="headerlink" href="#overlaying-scatters-lines-and-histograms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.10.1. </span>Overlaying scatters, lines, and histograms<a class="headerlink" href="#overlaying-scatters-lines-and-histograms" title="Permalink to this headline">¶</a></h3>
 <p>How about starting by comparing the scatter plots we just learned about. That way, we can see what the rainfall and drought index look like in the two drastically different years.</p>
 <p>To overlay these two plots, we tell Babypandas that the two plots should share the same <em>axes</em> (plural of axis). To do this, we assign the first plot to a variable, then when we create the second plot we pass in an additional argument <code class="docutils literal notranslate"><span class="pre">ax</span></code> which references that variable.</p>
 <p>Let’s see what happens when we do this.</p>
@@ -1233,6 +1359,12 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">dustbowl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;rainfall&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;zndx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rainfall&#39;, ylabel=&#39;zndx&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_112_1.png" src="../_images/intro_112_1.png" />
 </div>
 </div>
 <p>Uh oh, Python did exactly what we told it to do – it simply drew the two plots on top of each other! Unfortunately, we have no way to tell which point came from 2019 versus 1930. To fix this, we should introduce two additional arguments: <code class="docutils literal notranslate"><span class="pre">label</span></code> should be set to the name of each group we’re plotting, this will show up next to the chart along with a <code class="docutils literal notranslate"><span class="pre">color</span></code> for that group. The color argument can be set to <a class="reference external" href="https://matplotlib.org/3.1.0/gallery/color/named_colors.html">many things</a>, including valid <a class="reference external" href="https://www.computerhope.com/htmcolor.htm">hex codes</a>. Let’s set our labels to ‘2019’ and ‘Dustbowl’ to be descriptive, and for a bit of fun let’s set the colors to ‘aqua’ and ‘sandybrown’ respectively.</p>
@@ -1250,6 +1382,12 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;rainfall&#39;, ylabel=&#39;zndx&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_115_1.png" src="../_images/intro_115_1.png" />
+</div>
 </div>
 <p>The same technique can be used to compare most types of charts. We can compare time series data across groups, like the average rainfall over the course of 2019 versus the rainfall over the course of 1930.</p>
 <div class="cell docutils container">
@@ -1264,6 +1402,12 @@ $<span class="math notranslate nohighlight">\(
                    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dustbowl&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;sandybrown&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;month&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_117_1.png" src="../_images/intro_117_1.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -1280,6 +1424,12 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_120_1.png" src="../_images/intro_120_1.png" />
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1287,7 +1437,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="section" id="comparing-bar-charts">
-<h3><span class="section-number">13.10.2. </span>Comparing bar charts<a class="headerlink" href="#comparing-bar-charts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.10.2. </span>Comparing bar charts<a class="headerlink" href="#comparing-bar-charts" title="Permalink to this headline">¶</a></h3>
 <p>How did the rainfall compare across the climate regions for the different years? We’re able to answer this question by comparing bar charts, but unfortunately we can’t use the same approach as before. That’s the bars would simply be drawn on top of each other and completely overlap!</p>
 <p>What would make more sense is to create a bar chart such that the bars for the two groups we’re comparing are placed <em>next</em> to eachother instead of on top of eachother.</p>
 <p>We can accomplish this by creating a table that has a column for both groups we indend to chart, and whose indices are the categories of the bar chart.</p>
@@ -1309,6 +1459,83 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rain2019</th>
+      <th>rain1930</th>
+    </tr>
+    <tr>
+      <th>region</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Northeast Climate Region</th>
+      <td>4.137500</td>
+      <td>2.696667</td>
+    </tr>
+    <tr>
+      <th>Northern Rockies and Plains Climate Region</th>
+      <td>2.040833</td>
+      <td>1.489167</td>
+    </tr>
+    <tr>
+      <th>Northwest Climate Region</th>
+      <td>2.385000</td>
+      <td>1.977500</td>
+    </tr>
+    <tr>
+      <th>Ohio Valley Climate Region</th>
+      <td>4.498333</td>
+      <td>2.520000</td>
+    </tr>
+    <tr>
+      <th>South Climate Region</th>
+      <td>3.371667</td>
+      <td>2.719167</td>
+    </tr>
+    <tr>
+      <th>Southeast Climate Region</th>
+      <td>4.191667</td>
+      <td>3.671667</td>
+    </tr>
+    <tr>
+      <th>Southwest Climate Region</th>
+      <td>1.314167</td>
+      <td>1.238333</td>
+    </tr>
+    <tr>
+      <th>Upper Midwest Climate Region</th>
+      <td>3.361667</td>
+      <td>2.003333</td>
+    </tr>
+    <tr>
+      <th>West Climate Region</th>
+      <td>1.899167</td>
+      <td>1.185833</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Then, we can plot this new combined table by passing in column names, labels, and colors as a list of desired values for each group.</p>
 <div class="cell docutils container">
@@ -1317,6 +1544,12 @@ $<span class="math notranslate nohighlight">\(
               <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;Dustbowl&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;region&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/intro_127_1.png" src="../_images/intro_127_1.png" />
 </div>
 </div>
 <p>As we would expect, the second wettest year in the U.S. got considerably more rainfall in just about every region than one of the driest years in the U.S… except for in the Southwest.</p>
@@ -1348,16 +1581,27 @@ $<span class="math notranslate nohighlight">\(
               </div>
               
         
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="../02-data_sets/apply.html" title="previous page"><span class="section-number">12. </span>Defining and Applying Functions</a>
-    <a class='right-next' id="next-link" href="scatter.html" title="next page"><span class="section-number">14. </span>Scatter Plots</a>
-
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../02-data_sets/merging.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">13. </span>Merging data sets</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="scatter.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Scatter Plots</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -1373,8 +1617,7 @@ $<span class="math notranslate nohighlight">\(
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
