@@ -26,7 +26,6 @@ novice data scientist in mind.
 - [Building](#building)
 - [Making Changes](#making-changes)
 - [Publishing](#publishing)
-- [Developing](#developing)
 - [Project Structure](#project-structure)
 - [Extensions](#extensions)
 - [Reader-Friendly Jupyter Notebooks](#reader-friendly-jupyter-notebooks)
