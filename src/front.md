@@ -11,14 +11,15 @@ mathematical formulae. At the same time, the course does not assume that the
 reader has any experience in programming; instead, we learn "just enough"
 programming to do data science. 
 
-These course notes are based on the textbook [*Computational and Inferential
-Thinking: The Foundations of Data
+DSC 10 is based on Berkeley's [Data 8](http://data8.org/). Likewise, these
+course notes are based on the textbook used in Data 8 &mdash; [*Computational and
+Inferential Thinking: The Foundations of Data
 Science*](https://inferentialthinking.com/chapters/intro.html) by Ani Adhikari,
-John DeNero, and David Wagner. However, while the textbook uses the
-[`datascience`](https://github.com/data-8/datascience) module to introduce
-programming with tabular data, these course notes instead use
-[`babypandas`](https://github.com/babypandas-dev/babypandas).
-`babypandas` is an
+John DeNero, and David Wagner. While Data 8 and *Computational and Inferential
+Thinking* introduce programming with tabular data using the
+[`datascience`](https://github.com/data-8/datascience) module, DSC 10 and these
+course notes instead use
+[`babypandas`](https://github.com/babypandas-dev/babypandas). `babypandas` is an
 opinionated proper subset of the popular `pandas` package designed with the
 novice data scientist in mind.
 
