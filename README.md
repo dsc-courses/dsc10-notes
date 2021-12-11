@@ -46,6 +46,9 @@ notes.
 
 ### With Nix
 
+⚠️ Building with Nix is more advanced; using Poetry is recommended for most use
+cases.
+
 For a more reproducible build, the Python and Poetry dependencies are also
 specified using [Nix](https://nixos.org/). The below assumes that you have installed a recent
 version of Nix that has the "flake" feature enabled. For instructions, see the
@@ -60,8 +63,8 @@ the project. The results will again appear in `src/_build/html`.
 Making Changes
 --------------
 
-1. Before working on the notes, run `make init` in the project's root. Among
-   other things, this will install git pre-commit hooks.
+1. Before working on the notes for the first time, run `make init` in the
+   project's root. Among other things, this will install git pre-commit hooks.
 2. Create a new branch to hold your changes with `git checkout -b
    <branch_name>`.
 2. Make your changes by editing the appropriate file (usually in the `src/`
