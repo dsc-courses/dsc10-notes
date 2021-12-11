@@ -688,25 +688,15 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">_get_deprecated_option</span><span class="nt">(key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">588</span>         <span class="n">d</span> <span class="o">=</span> <span class="n">_deprecated_options</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">589</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="ne">KeyError</span>: &#39;mode.data_manager&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">bsV0iI</span><span class="o">/</span><span class="n">ipykernel_5319</span><span class="o">/</span><span class="mf">3747119647.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">rX0USL</span><span class="o">/</span><span class="n">ipykernel_5497</span><span class="o">/</span><span class="mf">3747119647.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="c1"># Create a bunch of bootstrapped statistics from this sample</span>
 <span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">boot_medians</span> <span class="o">=</span> <span class="n">bootstrap</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> 
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="c1"># Calculate the 95% confidence interval on the bootstrapped statistics</span>
 
-<span class="nn">/tmp/nix-shell.bsV0iI/ipykernel_5319/1913435848.py</span> in <span class="ni">bootstrap</span><span class="nt">(sample, trials)</span>
+<span class="nn">/tmp/nix-shell.rX0USL/ipykernel_5497/1913435848.py</span> in <span class="ni">bootstrap</span><span class="nt">(sample, trials)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="c1"># Remember to specify replacement!</span>
 <span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">resample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -749,53 +739,18 @@
 <span class="g g-Whitespace">   </span><span class="mi">3330</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_fast_transpose</span><span class="p">:</span>
 
 <span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">dtypes</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5657</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">5658</span><span class="sd">         data = self._mgr.get_dtypes()</span>
-<span class="ne">-&gt; </span><span class="mi">5659</span><span class="sd">         return self._constructor_sliced(data, index=self._info_axis, dtype=np.object_)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5660</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">5661</span><span class="sd">     def astype(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5657</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">5658</span><span class="s2">         data = self._mgr.get_dtypes()</span>
+<span class="ne">-&gt; </span><span class="mi">5659</span><span class="s2">         return self._constructor_sliced(data, index=self._info_axis, dtype=np.object_)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5660</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">5661</span><span class="s2">     def astype(</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">__init__</span><span class="nt">(self, data, index, dtype, name, copy, fastpath)</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="sd">                 data = sanitize_array(data, index, dtype, copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">441</span><span class="sd">                 manager = get_option(&quot;mode.data_manager&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="sd">                 if manager == &quot;block&quot;:</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="sd">                     data = SingleBlockManager.from_array(data, index)</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span><span class="sd">     def __call__(self, *args, **kwds):</span>
-<span class="ne">--&gt; </span><span class="mi">243</span><span class="sd">         return self.__func__(*args, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span><span class="sd">     @property</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">_get_option</span><span class="nt">(pat, silent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span><span class="sd"> def _get_option(pat: str, silent: bool = False):</span>
-<span class="ne">--&gt; </span><span class="mi">115</span><span class="sd">     key = _get_single_key(pat, silent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span><span class="sd">     # walk the nested dict</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">_get_single_key</span><span class="nt">(pat, silent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="sd">         _warn_if_deprecated(key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">109</span><span class="sd">     key = _translate_key(key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd">     return key</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">_translate_key</span><span class="nt">(key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span><span class="sd">     replacement key, otherwise returns `key` as - is</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">611</span>     <span class="n">d</span> <span class="o">=</span> <span class="n">_get_deprecated_option</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">612</span>     <span class="k">if</span> <span class="n">d</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span>         <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">rkey</span> <span class="ow">or</span> <span class="n">key</span>
-
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/_config/config.py</span> in <span class="ni">_get_deprecated_option</span><span class="nt">(key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">     try:</span>
-<span class="ne">--&gt; </span><span class="mi">588</span><span class="s2">         d = _deprecated_options[key]</span>
-<span class="g g-Whitespace">    </span><span class="mi">589</span><span class="s2">     except KeyError:</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2">         return None</span>
+<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">_info_axis</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span><span class="s2">     @property</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span><span class="s2">     def _info_axis(self) -&gt; Index:</span>
+<span class="ne">--&gt; </span><span class="mi">633</span><span class="s2">         return getattr(self, self._info_axis_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">634</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span><span class="s2">     @property</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
