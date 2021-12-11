@@ -11,9 +11,10 @@ html: notebooks
 notebooks:
 	# take the notebooks used as source documents and remove tagged cells,
 	# placing them in the notebooks/ directory.
-	mkdir -p notebooks/book_pages
-	cd notebooks/book_pages && \
-		python ../../scripts/make_reader_friendly_notebooks.py ../../src
+	rm -rf _notebooks
+	mkdir -p _notebooks
+	cd _notebooks && \
+		python ../scripts/make_reader_friendly_notebooks.py ../src
 
 
 .PHONY: init

@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    name: Environment Setup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        uses: cachix/install-nix-action@v14.1
+        with:
+          install_url: https://nixos-nix-install-tests.cachix.org/serve/vij683ly7sl95nnhb67bdjjfabclr85m/install
+          install_options: '--tarball-url-prefix https://nixos-nix-install-tests.cachix.org/serve'
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+  deploy-html:
+    runs-on: ubuntu-latest
+    name: Publish HTML Notes
+    needs: setup
+    steps:
+      - name: Build HTML Notes
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop -c make html
+
+      - name: Deploy HTML Notes
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: src/_build/html
+
+  deploy-notebooks:
+    runs-on: ubuntu-latest
+    name: Publish Notebooks
+    needs: setup
+    steps:
+      - name: Build Clean Notebooks
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop -c make notebooks
+
+      - name: Deploy Notebooks
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: notebooks
+          FOLDER: _notebooks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

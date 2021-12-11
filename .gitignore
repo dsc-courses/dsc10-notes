@@ -1,6 +1,6 @@
 # project-specific
 src/_build
-notebooks/book_pages
+_notebooks
 .direnv
 
 # Byte-compiled / optimized / DLL files

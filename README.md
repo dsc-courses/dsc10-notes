@@ -38,15 +38,16 @@ Building
 ### With Poetry
 
 This project's dependencies are managed with
-[poetry](https://python-poetry.org/). Make sure that you have *poetry*
-installed, then execute `poetry run make` in a shell to build the notes.
-The contents will be placed in the `src/_build/html` directory, and opening
-`src/_build/html/index.html` in a browser will display the front page of the
-notes.
+[poetry](https://python-poetry.org/). First, make sure that you have *poetry*
+installed. Before building the project for the first time, run `poetry install`
+in the repository root to install the dependencies. Then, to build the project,
+run `poetry run make`. The contents will be placed in the `src/_build/html`
+directory, and opening `src/_build/html/index.html` in a browser will display
+the front page of the notes.
 
 ### With Nix
 
-⚠️ Building with Nix is more advanced; using Poetry is recommended for most use
+> ⚠️ Building with Nix is more advanced; using Poetry is recommended for most use
 cases.
 
 For a more reproducible build, the Python and Poetry dependencies are also

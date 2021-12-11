@@ -26,6 +26,7 @@
         ];
 
         shellHook = ''
+          poetry install
           export PATH=$(poetry env info -p)/bin:$PATH
           export PYTHONPATH=$(poetry env info -p)/lib/python3.8/site-packages:$PYTHONPATH
         '';
