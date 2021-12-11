@@ -84,6 +84,13 @@
             ])
           )
         ];
+
+        # this is used on macOS to ensure that send2trash will function without an error
+        # if not provided, you'll see the following error when starting jupyter:
+        # AttributeError: dlsym(RTLD_DEFAULT, GetMacOSStatusCommentString): symbol not found
+        shellHook = ''
+          export DYLD_LIBRARY_PATH=/System/Library/Frameworks/Foundation.framework/Versions/C/Resources/BridgeSupport
+        '';
       }
     );
 
