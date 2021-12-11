@@ -23,6 +23,9 @@
         buildInputs = [
           pkgs.gnumake
           pkgs.poetry
+        ];
+
+        propagatedBuildInputs = [
           pkgs.gccStdenv
         ];
 
