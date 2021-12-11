@@ -20,9 +20,9 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
             name: HTML
-            path: book/_build/html/ # or path/to/artifact
+            path: src/_build/html/ # or path/to/artifact
       - name: Publish to GitHub pages
         uses: peaceiris/actions-gh-pages@v3.6.1
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: book/_build/html
+            publish_dir: src/_build/html

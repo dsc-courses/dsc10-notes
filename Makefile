@@ -4,7 +4,7 @@ export PYTHONPATH := ./extensions:${PYTHONPATH}
 .PHONY: html
 html: notebooks
 	# build the HTML version of the textbook
-	jupyter-book build --builder html book/
+	jupyter-book build --builder html src/
 
 
 .PHONY: notebooks
@@ -13,7 +13,7 @@ notebooks:
 	# placing them in the notebooks/ directory.
 	mkdir -p notebooks/book_pages
 	cd notebooks/book_pages && \
-		python ../../scripts/make_reader_friendly_notebooks.py ../../book
+		python ../../scripts/make_reader_friendly_notebooks.py ../../src
 
 
 .PHONY: init
@@ -24,5 +24,5 @@ init:
 
 .PHONY: clean
 clean:
-	rm -rf book/_build
+	rm -rf src/_build
 	rm -rf notebooks/book_pages

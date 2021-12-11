@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25. Hypothesis Tests for Parameters using Confidence Intervals &#8212; Dive into Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="26. How To Read This Book" href="../how_to_read.html" />
+    <link rel="prev" title="24. Confidence Intervals" href="2_confidence_intervals.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Dive into Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../front.html">
+   DSC 10 Course Notes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  1. Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/tools.html">
+   1. Tools of the Trade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/first_steps.html">
+   2. First Steps with Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/expressions.html">
+   3. Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/variables.html">
+   4. Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/functions.html">
+   5. Functions and Imports
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-getting_started/data_types.html">
+   6. Data Types
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting_started/data_types-numeric.html">
+     6.1. Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting_started/data_types-strings.html">
+     6.2. Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting_started/data_types-bool.html">
+     6.3. Booleans
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  2. NumPy and Babypandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/arrays.html">
+   7. Lists and Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/dataframes.html">
+   8. DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/accessing.html">
+   9. Accessing and Sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/querying.html">
+   10. Querying
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/groupby.html">
+   11. GroupBy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/apply.html">
+   12. Defining and Applying Functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  3. Visualization
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-visualization/intro.html">
+   13. Plotting with Babypandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-visualization/scatter.html">
+   14. Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-visualization/line.html">
+   15. Line graphs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-visualization/histogram.html">
+   16. Bar charts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  4. Advanced Data Manipulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-advanced_data_manipulation/merging.html">
+   17. Merge
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  5. Probability and Simulation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-probability_and_simulation/probability_and_simulation.html">
+   18. Probability and simulation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  6. Populations and Samples
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-populations_and_samples/1_populations_and_samples.html">
+   19. Populations and Samples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-populations_and_samples/2_parameters_and_statistics.html">
+   20. Parameters and statistics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  7. Hypothesis Testing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-hypothesis_testing/1_hypothesis_tests.html">
+   21. Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-hypothesis_testing/2_permutation_tests.html">
+   22. Permutation Tests
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  8. Estimation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_bootstrap.html">
+   23. Parameter Estimation and Bootstrap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_confidence_intervals.html">
+   24. Confidence Intervals
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   25. Hypothesis Tests for Parameters using Confidence Intervals
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_read.html">
+   26. How To Read This Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary.html">
+   27. All Terms and Tips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../genindex.html">
+   28. Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/08-estimation/3_ht_using_intervals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/eldridgejm/dive_into_data_science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/eldridgejm/dive_into_data_science/issues/new?title=Issue%20on%20page%20%2F08-estimation/3_ht_using_intervals.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/eldridgejm/dive_into_data_science/master?urlpath=tree/notebooks/book_pages/08-estimation/3_ht_using_intervals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://datahub.ucsd.edu/hub/user-redirect/git-pull?repo=https://github.com/eldridgejm/dive_into_data_science&urlpath=tree/dive_into_data_science/notebooks/book_pages/08-estimation/3_ht_using_intervals.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chances-of-containing-a-parameter">
+   25.1. Chances of containing a parameter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matching-error-probabilities">
+   25.2. Matching error probabilities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conducting-an-ht-with-a-ci">
+   25.3. Conducting an HT with a CI
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hypothesis-tests-for-parameters-using-confidence-intervals">
+<h1><span class="section-number">25. </span>Hypothesis Tests for Parameters using Confidence Intervals<a class="headerlink" href="#hypothesis-tests-for-parameters-using-confidence-intervals" title="Permalink to this headline">¶</a></h1>
+<p>In the previous chapter we discovered that we can set up Hypothesis Tests about assumptions of certain characteristics of our population distribution – like it’s shape, or the value of one of its parameters.</p>
+<p>In this chapter we’ve introduce a way to estimate a population parameter using sampling distributions and confidence intervals, sometimes even in the absence of assumptions.</p>
+<p>Turns out, we can combine the two and use confidence intervals to test assumptions about parameters!</p>
+<div class="section" id="chances-of-containing-a-parameter">
+<h2><span class="section-number">25.1. </span>Chances of containing a parameter<a class="headerlink" href="#chances-of-containing-a-parameter" title="Permalink to this headline">¶</a></h2>
+<p>Remember that a process which generates 95% confidence intervals will generate an interval containing the true population parameter 95% of the time. We looked at this using a cool visualization of a bunch of bootstrapped confidence intervals.</p>
+<p><img alt="" src="../_images/confidence-interval-containment.png" /></p>
+<p>Another way to think about this is that it’s <em>pretty rare</em> that we could generate a confidence interval which <em>doesn’t</em> contain the true population parameter… With a 95% confidence interval this only theoretically happens 5% of the time. If we were using a 99% confidence interval, we’d expect to ever randomly compute an interval not containing the true parameter only 1% of the time – a very unlikely event!</p>
+<p>Do you see where we’re heading with this?</p>
+</div>
+<div class="section" id="matching-error-probabilities">
+<h2><span class="section-number">25.2. </span>Matching error probabilities<a class="headerlink" href="#matching-error-probabilities" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we’re testing if a coin is fair, so our null hypothesis is that the coin is fair, <span class="math notranslate nohighlight">\(P(Heads) = 0.5\)</span>, and our alternative hypothesis is that it isn’t fair. We don’t have access to the entire population of coin flips (that’s infinite!) but we do have access to a sample of 100 flips.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">babypandas</span> <span class="k">as</span> <span class="nn">bpd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+<span class="n">heads_probability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="n">bpd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+    <span class="n">trial</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">outcome</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;Heads&#39;</span><span class="p">,</span> <span class="s1">&#39;Tails&#39;</span><span class="p">],</span>
+        <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">heads_probability</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">heads_probability</span><span class="p">],</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">100</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">sample_props</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;outcome&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;trial&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">sample_props</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">129</span><span class="n">bf074a68f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">babypandas</span> <span class="k">as</span> <span class="nn">bpd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we’re about to start a test, we should specify our level of significance, <span class="math notranslate nohighlight">\(\alpha\)</span>. If we wrongly accuse our friend of using a coin where the chance of Heads isn’t 50%, we could end the friendship! So, we want to be very cautious about rejecting our null – let’s use a very small level of significance of <span class="math notranslate nohighlight">\(0.01\)</span> (this means we’ll make decisions about the null when we have less than a <span class="math notranslate nohighlight">\(1\%\)</span> chance of wrongly accusing our friend).</p>
+<p>The main leap in logic comes here: If we compute a <span class="math notranslate nohighlight">\(99\%\)</span> confidence interval for the probability of seeing Heads, then the chance that our interval incorrectly excludes the true population parameter is <span class="math notranslate nohighlight">\(1\%\)</span>. So <strong>if the null parameter is true, then an <span class="math notranslate nohighlight">\(x\%\)</span> confidence interval should only exclude it <span class="math notranslate nohighlight">\(100-x\%\)</span> of the time.</strong></p>
+</div>
+<div class="section" id="conducting-an-ht-with-a-ci">
+<h2><span class="section-number">25.3. </span>Conducting an HT with a CI<a class="headerlink" href="#conducting-an-ht-with-a-ci" title="Permalink to this headline">¶</a></h2>
+<p>The structure is as follows:</p>
+<ul class="simple">
+<li><p>Define the null hypothesis and alternative hypothesis for a parameter value</p></li>
+<li><p>Define the level of significance, <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+<li><p>Generate a <span class="math notranslate nohighlight">\(100-\alpha\%\)</span> confidence interval for the true parameter</p></li>
+<li><p><strong>If our interval excludes the null parameter</strong> it suggests that there’s a less than <span class="math notranslate nohighlight">\(\alpha\%\)</span> chance of this happening if the population parameter were truly the null. Since this is really unlikely, we <strong>reject</strong> the null.</p></li>
+<li><p><strong>If our interval includes the null parameter</strong> then we believe that the true parameter is somewhere within that interval, so it could be the null parameter. Thus, we <strong>fail to reject</strong> the null.</p></li>
+</ul>
+<p>Let’s try it out with our coin flip example!</p>
+<p>We’ve already determined our hypotheses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: The true <span class="math notranslate nohighlight">\(P(Heads)\)</span> for the coin is <span class="math notranslate nohighlight">\(0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: The true <span class="math notranslate nohighlight">\(P(Heads) \neq 0.5\)</span>.</p></li>
+</ul>
+<p>And we don’t want to falsely accuse our friend so we’re using a low level of significance <span class="math notranslate nohighlight">\(\alpha = 1\%\)</span>.</p>
+<p>Now it’s time to generate some <span class="math notranslate nohighlight">\(100-\alpha\%=99\%\)</span> confidence intervals for the probability of Heads. We’ll do so by bootstrapping the proportion of Heads in our sample.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_proportions</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">trials</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates bootstrapped proportions of Heads estimates from a sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bootstrapped_proportions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trials</span><span class="p">):</span>
+        <span class="n">resample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">boot_prop_heads</span> <span class="o">=</span> <span class="p">(</span><span class="n">resample</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;outcome&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Heads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">bootstrapped_proportions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boot_prop_heads</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bootstrapped_proportions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we build our confidence interval and plot it.</p>
+<p>Let’s also plot our null parameter so we can see if our interval contains it or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use bootstrapping to estimate a sampling distribution using our sample</span>
+<span class="n">boot_props</span> <span class="o">=</span> <span class="n">bootstrap_proportions</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">boot_props</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">boot_props</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">boot_props</span><span class="p">,</span> <span class="mf">99.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;99% CI&#39;</span><span class="p">)</span>
+
+<span class="n">null_proportion</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">null_proportion</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Null proportion&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of resample proportions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Bootstrap P(Heads)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like our <span class="math notranslate nohighlight">\(99\%\)</span> confidence interval didn’t contain <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
+<p>So, <em>if</em> the actual probability of flipping a Heads with this coin <em>truly was</em> <span class="math notranslate nohighlight">\(0.5\)</span>, then we have only a <span class="math notranslate nohighlight">\(1\%\)</span> chance of managing to create the confidence interval we just did – one which manages to not contain the ‘true’ parameter.</p>
+<p>That seems pretty unlikely (less than a <span class="math notranslate nohighlight">\(1\%\)</span> chance), so it looks like we’re going to need to reject the null hypothesis and decide that our friend is using an unfair coin!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./08-estimation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2_confidence_intervals.html" title="previous page"><span class="section-number">24. </span>Confidence Intervals</a>
+    <a class='right-next' id="next-link" href="../how_to_read.html" title="next page"><span class="section-number">26. </span>How To Read This Book</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Parker Addison and Justin Eldridge<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

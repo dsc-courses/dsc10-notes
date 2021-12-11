@@ -10,7 +10,7 @@ from docutils.parsers.rst import Directive
 from sphinx.locale import _
 from sphinx.util.docutils import SphinxDirective
 
-config_path = pathlib.Path(__file__).parent / '../book/_config.yml'
+config_path = pathlib.Path(__file__).parent / '../src/_config.yml'
 
 with config_path.open() as fileobj:
     config = yaml.load(fileobj, Loader=yaml.Loader)
