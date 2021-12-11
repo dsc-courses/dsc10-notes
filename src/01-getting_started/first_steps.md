@@ -1,4 +1,6 @@
-# First Steps with Notebooks
+(first-steps)=
+First Steps with Notebooks
+==========================
 
 In this section, we will explore the basic functionality of Jupyter notebooks,
 and write our first few lines of Python. As we explore, we highly recommend that
@@ -10,7 +12,7 @@ clicking the link below:
 
 Clicking this link will open a new tab containing a Jupyter notebook.  All of
 the code you write in this notebook will be executed "in the cloud" -- that is,
-the code is run on a remote server called a *JupyterHub*, and the result is
+the code is run on a remote server running a program called *JupyterHub*, and the result is
 transmitted to your browser over the internet.
 
 ```{note}
@@ -23,12 +25,12 @@ remote server.
 ```{caution}
 
 If you have any previous experience with Python, you might be wondering if you
-*need* to run Jupyter through the cloud, or whether you can just install and run
-it on your own machine. The answer is "yes, you can, but be careful!". This textbook is
-using specific versions of Python, babypandas, and other packages. If you
+*need* to run Jupyter in the cloud, or whether you can just install and run
+it on your own machine. The answer is "yes, you can, but be careful!". These
+notes use specific versions of Python, babypandas, and other packages. If you
 install these packages on your own machine, you'll need to guarantee that you're
 installing the same versions -- otherwise, the output of your code might be
-slightly different.
+slightly different, and you may run into unexpected errors.
 ```
 
 ## Code Cells
@@ -135,5 +137,5 @@ Running a markdown cell in a notebook.
 
 You can double-click the cell to see and edit its Markdown source once again.
 
-You will not be asked to use Markdown in the rest of the textbook, but text
+You will not be asked to use Markdown in the rest of the course, but text
 cells are very useful part of Jupyter notebooks.

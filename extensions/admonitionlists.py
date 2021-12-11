@@ -267,8 +267,10 @@ def setup(app):
         # ***********
         # """)
 
+        # we must extend the existing directive and replace it
+        # we override here to squash a warning about the directive already existing
         extended_directive = create_extended_directive(Admonition)
-        app.add_directive(Admonition.__name__.lower(), extended_directive)
+        app.add_directive(Admonition.__name__.lower(), extended_directive, override=True)
 
         list_directive = create_list_directive(Admonition, list_node)
         app.add_directive(Admonition.__name__.lower()+'list', list_directive)

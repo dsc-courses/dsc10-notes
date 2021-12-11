@@ -1,10 +1,12 @@
 # Book settings
-title: Dive into Data Science
+title: DSC 10 Course Notes
 author: Parker Addison and Justin Eldridge
 
 html:
     use_repository_button: true
     use_issues_button: true
+    home_page_in_navbar: false
+    navbar_number_sections: true
 
 latex:
   latex_documents:
@@ -22,8 +24,8 @@ repository:
 sphinx:
   extra_extensions:
   - sphinx_tabs.tabs
-  - jupytertips
   - jupyterhublink
   - hiddenanswer
   - dterms
+  - jupytertips
   - admonitionlists

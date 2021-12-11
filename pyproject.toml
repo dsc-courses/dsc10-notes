@@ -1,14 +1,15 @@
 [tool.poetry]
 name = "dsc10-notes"
 version = "0.1.0"
-description = ""
+description = "The development environment for the DSC 10 course notes."
 authors = ["Justin Eldridge <eldridgejm@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 sphinx-tabs = "^3.2.0"
 notebook = "^6.4.6"
-babypandas = "^0.1.6"
+babypandas = { git = "https://github.com/babypandas-dev/babypandas.git", rev = "7f2e26f6cdf6ac77c918c9dd7e81e66fc30fb3bd" }
+matplotlib = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 jupyter-book = "^0.12.1"

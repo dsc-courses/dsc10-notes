@@ -1,12 +1,22 @@
-Dive into Data Science
-======================
+DSC 10 Course Notes
+===================
 
-*Dive into Data Science* is an introductory textbook which develops the core
-ideas of statistics via programming and simulation instead of the manipulation
-of mathematical formulae. At the same time, the textbook does not assume that the
+These are the course notes for DSC 10 @ UCSD.
+
+DSC 10 is an introductory data science course which develops the core ideas of
+statistics via programming and simulation instead of the manipulation of
+mathematical formulae. At the same time, the course does not assume that the
 reader has any experience in programming; instead, we learn "just enough"
-programming to do data science. The textbook is written around the
-[`babypandas`](https://github.com/babypandas-dev/babypandas) package; an
+programming to do data science. 
+
+These course notes are based on the textbook [*Computational and Inferential
+Thinking: The Foundations of Data
+Science*](https://inferentialthinking.com/chapters/intro.html) by Ani Adhikari,
+John DeNero, and David Wagner. However, while the textbook uses the
+[`datascience`](https://github.com/data-8/datascience) module to introduce
+programming with tabular data, these course notes instead use
+[`babypandas`](https://github.com/babypandas-dev/babypandas).
+`babypandas` is an
 opinionated proper subset of the popular `pandas` package designed with the
 novice data scientist in mind.
 
@@ -25,37 +35,55 @@ novice data scientist in mind.
 Building
 --------
 
-The textbook is developed using [Jupyter Book](https://jupyterbook.org/intro.html).
-Pages are written as either Jupyter notebooks or MyST markdown. The development
-and build dependencies are managed using [Nix](https://nixos.org/). The below
-assumes that you have installed a recent version of Nix that has the "flake"
-feature enabled. For instructions, see the [Nix
-Wiki](https://nixos.wiki/wiki/Flakes).
+### With Poetry
 
-To build the HTML version of the textbook, first enter the development shell by
-invoking `nix develop` at the repository's root. Then run `make html` (or
-simply `make`) to compile the book. The results will be placed in the
-`book/_build` directory.
+This project's dependencies are managed with
+[poetry](https://python-poetry.org/). Make sure that you have *poetry*
+installed, then execute `poetry run make` in a shell to build the notes.
+The contents will be placed in the `src/_build/html` directory, and opening
+`src/_build/html/index.html` in a browser will display the front page of the
+notes.
 
-Developing
-----------
+### With Nix
 
-### Getting Started
+For a more reproducible build, the Python and Poetry dependencies are also
+specified using [Nix](https://nixos.org/). The below assumes that you have installed a recent
+version of Nix that has the "flake" feature enabled. For instructions, see the
+[Nix Wiki](https://nixos.wiki/wiki/Flakes).
 
-Before working on the book, run `make init` in the project's root. Among other
-things, this will install git pre-commit hooks.
+To build the notes, run `nix develop` in the current directory to enter the
+development environment; this will install both python and poetry and will
+download the needed python dependencies using poetry. Next, run `make` to build
+the project. The results will again appear in `src/_build/html`.
 
-### Project Structure
 
-This textbook is written using [JupyterBook](jupyterbook.org) along with
-several custom extensions and scripts.
+Making Changes
+--------------
 
-The `book/` directory contains the book's contents. `book/_config.yml` contains
+1. Before working on the notes, run `make init` in the project's root. Among
+   other things, this will install git pre-commit hooks.
+2. Create a new branch to hold your changes with `git checkout -b
+   <branch_name>`.
+2. Make your changes by editing the appropriate file (usually in the `src/`
+   directory).
+3. Build and preview the updates notes using the instructions [above](#building).
+4. Push your branch to the `dsc-courses/dsc10-notes` repository and submit a
+   pull request.
+
+
+Project Structure
+-----------------
+
+These notes are written using [JupyterBook](jupyterbook.org) along with
+several custom extensions and scripts. Pages are either Jupyter notebooks or
+MyST markdown files.
+
+The `src/` directory contains the pages. `src/_config.yml` contains
 important configuration variables, such as the URL of the JupyterHub that will
 be used to launch notebooks interactively.
 
 `extensions/` contains the extensions which define custom directives. See
-"Extensions" below.
+[Extensions](#extensions) below.
 
 `notebooks/book_pages` contains the Jupyter notebooks that students will see if
 they open the interactive version of the textbook page. These notebooks are

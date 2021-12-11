@@ -23,40 +23,38 @@ parts:
   - file: 02-data_sets/querying
   - file: 02-data_sets/groupby
   - file: 02-data_sets/apply
+  - file: 02-data_sets/merging
 - caption: 3. Visualization
   numbered: true
   chapters:
   - file: 03-visualization/intro
   - file: 03-visualization/scatter
   - file: 03-visualization/line
-  - file: 03-visualization/histogram
-- caption: 4. Advanced Data Manipulation
+  - file: 03-visualization/bar
+- caption: 4. Probability and Simulation
   numbered: true
   chapters:
-  - file: 04-advanced_data_manipulation/merging
-- caption: 5. Probability and Simulation
+  - file: 04-probability_and_simulation/probability_and_simulation
+  - file: 04-probability_and_simulation/1_populations_and_samples
+  - file: 04-probability_and_simulation/2_parameters_and_statistics
+- caption: 5. Hypothesis Testing
   numbered: true
   chapters:
-  - file: 05-probability_and_simulation/probability_and_simulation
-- caption: 6. Populations and Samples
+  - file: 05-hypothesis_testing/1_hypothesis_tests
+  - file: 05-hypothesis_testing/2_permutation_tests
+- caption: 6. Estimation
   numbered: true
   chapters:
-  - file: 06-populations_and_samples/1_populations_and_samples
-  - file: 06-populations_and_samples/2_parameters_and_statistics
-- caption: 7. Hypothesis Testing
-  numbered: true
-  chapters:
-  - file: 07-hypothesis_testing/1_hypothesis_tests
-  - file: 07-hypothesis_testing/2_permutation_tests
-- caption: 8. Estimation
-  numbered: true
-  chapters:
-  - file: 08-estimation/1_bootstrap
-  - file: 08-estimation/2_confidence_intervals
-  - file: 08-estimation/3_ht_using_intervals
+  - file: 06-estimation/1_bootstrap
+  - file: 06-estimation/2_confidence_intervals
+  - file: 06-estimation/3_ht_using_intervals
 - caption: Reference
   numbered: true
   chapters:
   - file: how_to_read
   - file: glossary
+  - file: examples/examples
+    sections:
+    - file: examples/blank_notebook
+      title: Blank Notebook
   - file: genindex

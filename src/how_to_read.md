@@ -1,6 +1,6 @@
-# How To Read This Book
+# How To Read These Notes
 
-As you read this book, you'll encounter some components that are designed to help with your learning process.
+As you read these notes, you'll encounter some components that are designed to help with your learning process.
 
 When you see `text like this`, it means that text is related to code.
 
