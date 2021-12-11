@@ -1,5 +1,5 @@
 # project-specific
-book/_build
+src/_build
 notebooks/book_pages
 .direnv
 
