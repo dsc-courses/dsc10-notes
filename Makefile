@@ -2,7 +2,7 @@ export PYTHONPATH := ./extensions:${PYTHONPATH}
 
 
 .PHONY: html
-html: notebooks
+html:
 	# build the HTML version of the textbook
 	jupyter-book build --builder html src/
 

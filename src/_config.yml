@@ -17,9 +17,9 @@ launch_buttons:
     jupyterhub_url: "https://datahub.ucsd.edu"
 
 repository:
-    url: https://github.com/eldridgejm/dive_into_data_science
-    path_to_book: notebooks/book_pages # link to the reader-friendly notebooks
-    branch: master
+    url: https://github.com/dsc-courses/dsc10-notes
+    path_to_book: . # link to the reader-friendly notebooks
+    branch: notebooks
 
 sphinx:
   extra_extensions:
