@@ -21,11 +21,6 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-  deploy-html:
-    runs-on: ubuntu-latest
-    name: Publish HTML Notes
-    needs: setup
-    steps:
       - name: Build HTML Notes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop -c make html
 
@@ -35,11 +30,6 @@ jobs:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: src/_build/html
 
-  deploy-notebooks:
-    runs-on: ubuntu-latest
-    name: Publish Notebooks
-    needs: setup
-    steps:
       - name: Build Clean Notebooks
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop -c make notebooks
 
