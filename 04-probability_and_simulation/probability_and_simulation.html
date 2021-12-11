@@ -373,11 +373,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/eldridgejm/dive_into_data_science"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/dsc-courses/dsc10-notes"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/eldridgejm/dive_into_data_science/issues/new?title=Issue%20on%20page%20%2F04-probability_and_simulation/probability_and_simulation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/dsc-courses/dsc10-notes/issues/new?title=Issue%20on%20page%20%2F04-probability_and_simulation/probability_and_simulation.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -398,14 +398,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/eldridgejm/dive_into_data_science/master?urlpath=tree/notebooks/book_pages/04-probability_and_simulation/probability_and_simulation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dsc-courses/dsc10-notes/notebooks?urlpath=tree/./04-probability_and_simulation/probability_and_simulation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://datahub.ucsd.edu/hub/user-redirect/git-pull?repo=https://github.com/eldridgejm/dive_into_data_science&urlpath=tree/dive_into_data_science/notebooks/book_pages/04-probability_and_simulation/probability_and_simulation.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://datahub.ucsd.edu/hub/user-redirect/git-pull?repo=https://github.com/dsc-courses/dsc10-notes&urlpath=tree/dsc10-notes/./04-probability_and_simulation/probability_and_simulation.ipynb&branch=notebooks"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -610,7 +610,7 @@ P(\text{equally-likely outcome}) = \frac{1}{\text{# of possible outcomes}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -624,8 +624,8 @@ P(\text{equally-likely outcome}) = \frac{1}{\text{# of possible outcomes}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Heads&#39;, &#39;Heads&#39;, &#39;Heads&#39;, &#39;Tails&#39;,
-       &#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;], dtype=&#39;&lt;U5&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Tails&#39;,
+       &#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;], dtype=&#39;&lt;U5&#39;)
 </pre></div>
 </div>
 </div>
@@ -675,7 +675,7 @@ P(\text{event with equally-likely outcomes}) = \frac{\text{# outcomes in event}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -701,7 +701,7 @@ P(\text{event with equally-likely outcomes}) = \frac{\text{# outcomes in event}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 1, 5, 4, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 4, 5, 5, 2])
 </pre></div>
 </div>
 </div>
@@ -714,7 +714,7 @@ P(\text{event with equally-likely outcomes}) = \frac{\text{# outcomes in event}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, False,  True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False,  True])
 </pre></div>
 </div>
 </div>
@@ -827,8 +827,8 @@ P(\text{at least one success}) = P(\textit{not}\text{ no successes})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([323,  45,  67, 125, 256, 188, 226,  67, 250,  85, 341, 306, 291,
-       161, 360,  40,  23, 133, 193, 115,  64, 358,  84])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 47, 210, 236, 331,  14, 189, 190, 158, 232, 246, 250, 148, 184,
+         6, 236, 148, 327,   8, 154, 297, 329, 353, 232])
 </pre></div>
 </div>
 </div>
@@ -873,7 +873,7 @@ P(\text{at least one success}) = P(\textit{not}\text{ no successes})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -967,7 +967,7 @@ P(\text{at least one success}) = P(\textit{not}\text{ no successes})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5125
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5097
 </pre></div>
 </div>
 </div>
