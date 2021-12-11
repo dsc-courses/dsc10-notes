@@ -1,5 +1,5 @@
 """
-Generate the "reader friendly" version of a notebook used as a textbook source document.
+Generate the "reader friendly" version of a notebook used as a page in the notes.
 
 Notebooks used as source documents may have content that is confusing to readers,
 such as directives or visible cell tag toolbars. This script cleans all of these

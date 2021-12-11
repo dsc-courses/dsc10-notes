@@ -109,15 +109,15 @@ be used to launch notebooks interactively.
 [Extensions](#extensions) below.
 
 `scripts/` contains various scripts used in the development and building of the
-textbook, such as the script which generates the "cleaned" version of textbook
-pages that appear in the `notebooks/book_pages` directory. These scripts should
-generally not be invoked manually.
+notes, such as the script which generates the "cleaned" version of pages that
+appear in the `notebooks/book_pages` directory. These scripts should generally
+not be invoked manually.
 
 
 Extensions
 ----------
 
-Several extensions of MyST markdown are used in this textbook. These extensions
+Several extensions of MyST markdown are used in these notes. These extensions
 are defined by the files in `extensions/`. Their usage is described below.
 
 ### The "hiddenanswer" directive
@@ -183,15 +183,15 @@ The URL used for the links is configured in `book/_config.yml`.
 Reader-Friendly Notebooks
 -------------------------
 
-Many textbook pages are written as Jupyter Notebooks which are then converted to
-HTML by the build process. Readers can click the rocket icon on the HTML page to
-launch the notebook version in a JupyterHub session. However, the Jupyter
-notebooks used as source documents may include directives and other content that
-might confuse readers. Therefore, as part of the build process, the source
-notebooks are transformed by a GitHub workflow into "reader-friendly" notebooks
-and stored in the `notebooks` branch (these are the notebooks that are launched
-when the user clicks the rocket link to interact with a page). The notebooks are
-made "reader-friendly" by several mechanisms described below.
+Many pages are written as Jupyter Notebooks which are then converted to HTML by
+the build process. Readers can click the rocket icon on the HTML page to launch
+the notebook version in a JupyterHub session. However, the Jupyter notebooks
+used as source documents may include directives and other content that might
+confuse readers. Therefore, as part of the build process, the source notebooks
+are transformed by a GitHub workflow into "reader-friendly" notebooks and stored
+in the `notebooks` branch (these are the notebooks that are launched when the
+user clicks the rocket link to interact with a page). The notebooks are made
+"reader-friendly" by several mechanisms described below.
 
 
 ### Admonition Cells
