@@ -1,8 +1,6 @@
 DSC 10 Course Notes
 ===================
 
-**by Parker Addison and Justin Eldridge**
-
 Welcome to the [DSC 10](http://dsc10.com) course notes.
 
 DSC 10 is an introductory data science course which develops the core ideas of
@@ -24,8 +22,9 @@ opinionated subset of the popular `pandas` package designed with the
 novice data scientist in mind.
 
 
-#### Contributors
+#### Authors and Contributors
 
+These course notes are authored by Parker Addison and Justin Eldridge.
 Thank you to the following people who made various contributions:
 
 - Janine Tiefenbruck

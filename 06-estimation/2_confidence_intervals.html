@@ -689,14 +689,14 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="mf">.4</span><span class="n">hhcgH</span><span class="o">/</span><span class="n">ipykernel_5065</span><span class="o">/</span><span class="mf">3747119647.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="mf">.8</span><span class="n">VlmUK</span><span class="o">/</span><span class="n">ipykernel_5039</span><span class="o">/</span><span class="mf">3747119647.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="c1"># Create a bunch of bootstrapped statistics from this sample</span>
 <span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">boot_medians</span> <span class="o">=</span> <span class="n">bootstrap</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> 
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="c1"># Calculate the 95% confidence interval on the bootstrapped statistics</span>
 
-<span class="nn">/tmp/nix-shell.4hhcgH/ipykernel_5065/1913435848.py</span> in <span class="ni">bootstrap</span><span class="nt">(sample, trials)</span>
+<span class="nn">/tmp/nix-shell.8VlmUK/ipykernel_5039/1913435848.py</span> in <span class="ni">bootstrap</span><span class="nt">(sample, trials)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="c1"># Remember to specify replacement!</span>
 <span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">resample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -711,26 +711,39 @@
 <span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 
 <span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/babypandas/bpd.py</span> in <span class="ni">closure</span><span class="nt">(*vargs, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1531</span>                   <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1532</span> 
-<span class="ne">-&gt; </span><span class="mi">1533</span>         <span class="n">a</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">vargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span>         <span class="n">a</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">vargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1534</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1535</span>             <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1535</span>             <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1536</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1537</span>             <span class="k">return</span> <span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">sample</span><span class="nt">(self, n, frac, replace, weights, random_state, axis, ignore_index)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5363</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5364</span> 
-<span class="ne">-&gt; </span><span class="mi">5365</span>         <span class="n">locs</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">axis_length</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5366</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5367</span>         <span class="k">if</span> <span class="n">ignore_index</span><span class="p">:</span>
+<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/babypandas/bpd.py</span> in <span class="ni">__init__</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">_lift_to_pd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pd</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">_lift_to_pd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pd</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">43</span>         <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">_lift_to_pd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pd</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> 
+<span class="g g-Whitespace">     </span><span class="mi">45</span> 
 
-<span class="nn">mtrand.pyx</span> in <span class="ni">numpy.random.mtrand.RandomState.choice</span><span class="nt">()</span>
+<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">T</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3359</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">   </span><span class="mi">3360</span>     <span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3361</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3362</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3363</span>     <span class="c1"># ----------------------------------------------------------------------</span>
 
-<span class="nn">mtrand.pyx</span> in <span class="ni">numpy.random.mtrand.RandomState.randint</span><span class="nt">()</span>
+<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">transpose</span><span class="nt">(self, copy, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3326</span>         <span class="c1"># construct the args</span>
+<span class="g g-Whitespace">   </span><span class="mi">3327</span> 
+<span class="ne">-&gt; </span><span class="mi">3328</span>         <span class="n">dtypes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3329</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3330</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_fast_transpose</span><span class="p">:</span>
 
-<span class="nn">_bounded_integers.pyx</span> in <span class="ni">numpy.random._bounded_integers._rand_int64</span><span class="nt">()</span>
-
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">prod</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/base.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">752</span>             <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">754</span>             <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span> 
+<span class="g g-Whitespace">    </span><span class="mi">756</span>     <span class="nd">@cache_readonly</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
