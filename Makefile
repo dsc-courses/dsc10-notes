@@ -5,6 +5,7 @@ export PYTHONPATH := ./extensions:${PYTHONPATH}
 html:
 	# build the HTML version of the notes
 	jupyter-book build --builder html src/
+	echo "notes.dsc10.com" > src/_build/html/CNAME
 
 
 .PHONY: notebooks
