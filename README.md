@@ -246,7 +246,7 @@ Cells can be hidden in the reader-friendly version by adding a
 ## License
 
 This work is licensed under a
-[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License][cc-by-nc-sa].
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License][cc-by-nc-nd].
 
 [![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
 
