@@ -30,6 +30,7 @@ novice data scientist in mind.
 - [Project Structure](#project-structure)
 - [Extensions](#extensions)
 - [Reader-Friendly Jupyter Notebooks](#reader-friendly-jupyter-notebooks)
+- [License](#license)
 
 
 Building
@@ -240,3 +241,14 @@ See `./scripts/make_reader_friendly_notebooks.py` for more information.
 
 Cells can be hidden in the reader-friendly version by adding a
 `hide-from-reader` tag to the cell.
+
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License][cc-by-nc-sa].
+
+[![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
+
+[cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
+[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
