@@ -1,5 +1,5 @@
-Introduction to (Baby)Pandas
-============================
+Notes on (Baby)Pandas
+=====================
 
 
 In the zoo of tools used by data scientists,

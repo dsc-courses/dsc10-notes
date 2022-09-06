@@ -1,5 +1,5 @@
-Introduction to (Baby)Pandas
-============================
+Notes on to (Baby)Pandas
+========================
 
 This introduction to babypandas is used in DSC 10 @ UCSD.
 
