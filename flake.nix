@@ -2,19 +2,21 @@
   description = "The build environment for the DSC 10 course notes.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/21.05";
+    nixpkgs.url = "github:nixos/nixpkgs/22.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs, }:
+  outputs = { self, nixpkgs, nixpkgs-unstable }:
   let
-    supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
+    supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin"  ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
 
   in
   {
     devShell = forAllSystems (system:
     let
-      pkgs = import nixpkgs {
+
+      pkgs = import nixpkgs-unstable {
         inherit system;
       };
 
@@ -22,7 +24,21 @@
       pkgs.mkShell {
         buildInputs = [
           pkgs.gnumake
-          pkgs.poetry
+
+          (
+          pkgs.python310.withPackages(ps: with ps; [
+            black
+            matplotlib
+            bokeh
+            altair
+            numpy
+            pandas
+            pyyaml
+            notebook
+            poetry
+          ])
+          )
+
         ];
 
         shellHook = ''
