@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Defining Functions &#8212; Introduction to (Baby)Pandas</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Lists and NumPy Arrays" href="../02-data_sets/arrays.html" />
+    <link rel="prev" title="5.3. Booleans" href="data_types-bool.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to (Baby)Pandas</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  1. Getting Started
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tools.html">
+   1. Tools of the Trade
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_steps.html">
+   2. First Steps with Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="expressions.html">
+   3. Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. Calling Functions
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="data_types.html">
+   5. Data Types
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_types-numeric.html">
+     5.1. Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_types-strings.html">
+     5.2. Text
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_types-bool.html">
+     5.3. Booleans
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Defining Functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  2. NumPy and Babypandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/arrays.html">
+   7. Lists and NumPy Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/dataframes.html">
+   8. (Baby)Pandas DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/accessing.html">
+   9. Accessing and Sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/querying.html">
+   10. Querying
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/groupby.html">
+   11. GroupBy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/apply.html">
+   12. Applying Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-data_sets/merging.html">
+   13. Merging
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_read.html">
+   14. How To Read These Notes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary.html">
+   15. All Terms and Tips
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../examples/examples.html">
+   16. Example Notebooks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/blank_notebook.html">
+     16.1. Blank Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../genindex.html">
+   17. Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01-getting_started/functions-defining.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dsc-courses/dsc10-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dsc-courses/dsc10-notes/issues/new?title=Issue%20on%20page%20%2F01-getting_started/functions-defining.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dsc-courses/dsc10-notes/notebooks?urlpath=tree/./01-getting_started/functions-defining.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://datahub.ucsd.edu/hub/user-redirect/git-pull?repo=https://github.com/dsc-courses/dsc10-notes&urlpath=tree/dsc10-notes/./01-getting_started/functions-defining.ipynb&branch=notebooks"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   6.1. Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#splitting-strings">
+     6.1.1. Splitting Strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-def-statement">
+     6.1.2. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       def
+      </span>
+     </code>
+     statement
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#name">
+       6.1.2.1. Name
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arguments">
+       6.1.2.2. Arguments
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#body">
+       6.1.2.3. Body
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#docstring">
+       6.1.2.4. Docstring
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#return">
+       6.1.2.5. Return
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-behavior">
+     6.1.3. Function Behavior
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-are-recipes">
+       6.1.3.1. Functions are “recipes”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scope">
+       6.1.3.2. Scope
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#return-exits-the-function">
+       6.1.3.3.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         return
+        </span>
+       </code>
+       exits the function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#printing-versus-returning">
+       6.1.3.4.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         print
+        </span>
+       </code>
+       ing versus
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         return
+        </span>
+       </code>
+       ing
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   6.2. Examples
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Defining Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   6.1. Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#splitting-strings">
+     6.1.1. Splitting Strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-def-statement">
+     6.1.2. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       def
+      </span>
+     </code>
+     statement
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#name">
+       6.1.2.1. Name
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#arguments">
+       6.1.2.2. Arguments
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#body">
+       6.1.2.3. Body
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#docstring">
+       6.1.2.4. Docstring
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#return">
+       6.1.2.5. Return
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-behavior">
+     6.1.3. Function Behavior
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions-are-recipes">
+       6.1.3.1. Functions are “recipes”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scope">
+       6.1.3.2. Scope
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#return-exits-the-function">
+       6.1.3.3.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         return
+        </span>
+       </code>
+       exits the function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#printing-versus-returning">
+       6.1.3.4.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         print
+        </span>
+       </code>
+       ing versus
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         return
+        </span>
+       </code>
+       ing
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   6.2. Examples
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="defining-functions">
+<h1><span class="section-number">6. </span>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline">¶</a></h1>
+<p>We have seen that Python comes with a bunch of useful functions for performing common tasks. For instance, the built-in <code class="docutils literal notranslate"><span class="pre">round</span></code> function rounds a number to a specified number of decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have also seen that we can access even more functions by installing and importing a library.</p>
+<p>In some cases, however, there might not be a library providing the function that you need. Luckily, Python allows us to define our own functions. In this section, we’ll see how to create functions and apply them to tables.</p>
+<div class="section" id="example">
+<h2><span class="section-number">6.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you are working with a dataset containing a bunch of street addresses, such as the following address of the University of California, San Diego:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ucsd</span> <span class="o">=</span> <span class="s1">&#39;9500 Gilman Dr, La Jolla, CA 92093&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Suppose we only care about the city and state. That is, we’d like to extract the string <code class="docutils literal notranslate"><span class="pre">'La</span> <span class="pre">Jolla,</span> <span class="pre">CA'</span></code> from the full address. Python doesn’t come with a function that does exactly this, but we can write our own without too much work.</p>
+<div class="section" id="splitting-strings">
+<h3><span class="section-number">6.1.1. </span>Splitting Strings<a class="headerlink" href="#splitting-strings" title="Permalink to this headline">¶</a></h3>
+<p>A typical address has several parts: the street address, the city name, the state, and the zip code. The parts are separated by commas (with the exception of the state and zip code). Python strings have a helpful <code class="docutils literal notranslate"><span class="pre">.split</span></code> method which will split a string into parts according to whatever delimiter we provide. To split by a comma, we write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;9500 Gilman Dr&#39;, &#39; La Jolla&#39;, &#39; CA 92093&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is a list of strings, each of them a part of the original list.</p>
+<p>If we do not provide a delimiter, the default behavior of <code class="docutils literal notranslate"><span class="pre">.split</span></code> is to split based on whitespace (such as spaces):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;9500&#39;, &#39;Gilman&#39;, &#39;Dr,&#39;, &#39;La&#39;, &#39;Jolla,&#39;, &#39;CA&#39;, &#39;92093&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">.split</span></code> to retrieve the city and state name. Notice that when we split by commas, the city name will always be the second-to-last entry of the resulting list. This is because the last comma separates the city from the state and zip code. Remember that we can retrieve the second-to-last element of a list using square bracket notation, combined with using <code class="docutils literal notranslate"><span class="pre">-2</span></code> as the index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">city</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; La Jolla&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result has a leading space that we might want to get rid of – we’ll deal with that in a moment. For now, let’s retrieve the state name. To do this, it might be easiest to split based on whitespace – then the state abbreviation will again be the second-to-last element of the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">state</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’d like to put the city and state together into a single string, like <code class="docutils literal notranslate"><span class="pre">'La</span> <span class="pre">Jolla,</span> <span class="pre">CA'</span></code>. To do so, remember that the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator <em>concatenates</em> strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_and_state</span> <span class="o">=</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">state</span>
+<span class="n">city_and_state</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; La Jolla, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is almost perfect, but let’s get rid of the leading space. We can do this with the <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> string method, which removes leading and trailing whitespace.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_and_state</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;La Jolla, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great! Putting it all together, here’s the code we used to retrieve the city and state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">ucsd</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">city_and_state</span> <span class="o">=</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">state</span>
+<span class="n">city_and_state</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;La Jolla, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code might seem simple enough, but suppose we have another address that we’d like to process:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lego</span> <span class="o">=</span> <span class="s1">&#39;LEGOLAND California Resort 1 Legoland Dr, Carlsbad, CA 92008&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We <em>could</em> copy and paste the code above, but there is a better way: let’s define a function.</p>
+</div>
+<div class="section" id="the-def-statement">
+<h3><span class="section-number">6.1.2. </span>The <code class="docutils literal notranslate"><span class="pre">def</span></code> statement<a class="headerlink" href="#the-def-statement" title="Permalink to this headline">¶</a></h3>
+<p>In Python, new functions are created using the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement. Here is an example of a function which retrieves the city and state name from an address:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">city_comma_state</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return CITY, ST from an address string.&quot;&quot;&quot;</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">address</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">city_and_state</span> <span class="o">=</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">state</span>
+    <span class="k">return</span> <span class="n">city_and_state</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a lot to say about this, but first let’s test the function to see if it works. We call user-defined functions just like any other function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_comma_state</span><span class="p">(</span><span class="s1">&#39;9500 Gilman Dr, La Jolla, CA 92093&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;La Jolla, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_comma_state</span><span class="p">(</span><span class="n">ucsd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;La Jolla, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_comma_state</span><span class="p">(</span><span class="n">lego</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Carlsbad, CA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a closer look at the anatomy of a function definition. <a class="reference internal" href="#function"><span class="std std-numref">Fig. 6.1</span></a> below shows all of the different parts.</p>
+<div class="figure align-default" id="function">
+<a class="reference internal image-reference" href="../_images/function.svg"><img alt="../_images/function.svg" src="../_images/function.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The anatomy of a function.</span><a class="headerlink" href="#function" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="name">
+<h4><span class="section-number">6.1.2.1. </span>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h4>
+<p>A function definition starts with a name. Above, we’ve named our function <code class="docutils literal notranslate"><span class="pre">city_comma_state</span></code>, but any valid variable name would do. A function’s name should be short but descriptive.</p>
+</div>
+<div class="section" id="arguments">
+<h4><span class="section-number">6.1.2.2. </span>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h4>
+<p>Next come the function’s arguments. These are the “inputs” to the function. In this case, there is only one argument: the address that will be processed. We’ll see how to define functions with more than one argument in a moment. A function can also have zero arguments, in which case we would write <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">function_with_no_args():</span></code>. The arguments can be named anything, as long as they are valid variable names. The arguments are surrounded by parentheses, and separated by commas.</p>
+</div>
+<div class="section" id="body">
+<h4><span class="section-number">6.1.2.3. </span>Body<a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h4>
+<p>The body of the function contains the code that will be executed when the function is called. The arguments can be used within the body of the function. The body of the function must be indented – we usually do this with the tab key.</p>
+</div>
+<div class="section" id="docstring">
+<h4><span class="section-number">6.1.2.4. </span>Docstring<a class="headerlink" href="#docstring" title="Permalink to this headline">¶</a></h4>
+<p>The docstring is a piece of documentation that tells the reader what the function does. Including it is optional but recommended. If you ask Python for information on your function using <code class="docutils literal notranslate"><span class="pre">help</span></code>, the docstring will be displayed!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">city_comma_state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function city_comma_state in module __main__:
+
+city_comma_state(address)
+    Return CITY, ST from an address string.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="return">
+<h4><span class="section-number">6.1.2.5. </span>Return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h4>
+<p>A function should usually return some value – this is done using the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, followed by an expression whose value will be returned.</p>
+</div>
+</div>
+<div class="section" id="function-behavior">
+<h3><span class="section-number">6.1.3. </span>Function Behavior<a class="headerlink" href="#function-behavior" title="Permalink to this headline">¶</a></h3>
+<p>The code we include in a function behaves differently than the code we are used to writing in a couple of key ways.</p>
+<div class="section" id="functions-are-recipes">
+<h4><span class="section-number">6.1.3.1. </span>Functions are “recipes”<a class="headerlink" href="#functions-are-recipes" title="Permalink to this headline">¶</a></h4>
+<p>The code inside of a function is not executed until we call the function. For instance, suppose we try to do something impossible inside of a function – like dividing by zero:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you run the cell defining this function, everything will be fine: you won’t see an error. But when you <em>call</em> the function, Python let’s you know that you’re doing something that is mathematically impossible:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">foo</span><span class="p">()</span>
+
+<span class="nn">Cell In [16], line 2,</span> in <span class="ni">foo</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is because function definition are like recipes in the sense that handing someone a recipe is not the same as following the recipe and preparing the meal.</p>
+</div>
+<div class="section" id="scope">
+<h4><span class="section-number">6.1.3.2. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h4>
+<p>Variables defined within a function are available only inside of the function. We can define variables inside a function just as we normally would:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we run the function, we’ll see the number <code class="docutils literal notranslate"><span class="pre">47</span></code> displayed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if we try to use the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, Python will yell at us:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
+
+<span class="ne">NameError</span>: name &#39;x&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is because variables defined within a function are accessible only within the function. If we want to use that variable outside of the function, we need to pass it back to the caller using a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>It is a very good thing that the variables defined inside of a function do not exist outside of a function. For one, good programming practice stresses <strong>encapsulation</strong> – that is, to keep things simple, we shouldn’t need to know exactly what is going on inside of a function to be able to use it. Second, if every variable used inside of a function were available outside of the function, things would get messy very fast. Having a bunch of extra variables – most of which you’ll never use – is called <strong>namespace pollution</strong>.</p>
+</div>
+<p>Note that arguments count as “variables defined within a function”. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">my_argument</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">my_argument</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we call the function, everything will act as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
+</pre></div>
+</div>
+</div>
+</div>
+<p>But if we try to access <code class="docutils literal notranslate"><span class="pre">my_argument</span></code> outside of the function, Python tells us that we can’t:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_argument</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_argument</span>
+
+<span class="ne">NameError</span>: name &#39;my_argument&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>On the other hand, variables defined outside of a function are available inside the function. Consider for instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use this behavior sparingly – it is usually better to “isolate” a function from the outside world by passing in all of the variables that it needs.</p>
+</div>
+<div class="section" id="return-exits-the-function">
+<h4><span class="section-number">6.1.3.3. </span><code class="docutils literal notranslate"><span class="pre">return</span></code> exits the function<a class="headerlink" href="#return-exits-the-function" title="Permalink to this headline">¶</a></h4>
+<p>As soon as Python encounters a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, it stops executing the function and returns the corresponding value. As an example, consider the code below which has three <code class="docutils literal notranslate"><span class="pre">return</span></code>s. Only the first return statement will ever run:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting execution.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hey, I made it!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;On to number three...&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting execution.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="printing-versus-returning">
+<h4><span class="section-number">6.1.3.4. </span><code class="docutils literal notranslate"><span class="pre">print</span></code>ing versus <code class="docutils literal notranslate"><span class="pre">return</span></code>ing<a class="headerlink" href="#printing-versus-returning" title="Permalink to this headline">¶</a></h4>
+<p>As we saw above, functions are somewhat isolated from the rest of the world in the sense that variables defined within them cannot be used outside of the function. The “correct” way of transmitting values back to the world is to use a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. However, a common mistake is to think that <code class="docutils literal notranslate"><span class="pre">print</span></code> does the same thing. This is understandable, since <code class="docutils literal notranslate"><span class="pre">print</span></code>ing and <code class="docutils literal notranslate"><span class="pre">returning</span></code> looks similar in a Jupyter notebook. For example, let’s define a function that both <code class="docutils literal notranslate"><span class="pre">print</span></code>s and <code class="docutils literal notranslate"><span class="pre">return</span></code>s:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">52</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we run this function, we’ll see both values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">foo</span><span class="p">()</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only <code class="docutils literal notranslate"><span class="pre">42</span></code> is the <em>output</em> of the cell and can be “saved” to a variable. <code class="docutils literal notranslate"><span class="pre">52</span></code>, on the other hand, is simply displayed to the screen and is afterwards lost forever. This can be checked by displaying the value of <code class="docutils literal notranslate"><span class="pre">z</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nevertheless, using <code class="docutils literal notranslate"><span class="pre">print</span></code> inside of a function can be helpful in “debugging” – more on that in a moment.
+Lastly, if you truly want to return two values from a function, the right way to do so is by separating them with a comma, as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">52</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When the function is run, it will return a <strong>tuple</strong> of two things:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(42, 52)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <strong>tuple</strong> is like a list, so we can use square bracket notation to retrieve each element:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t usually need to return more than one thing from a function, though.</p>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><span class="section-number">6.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>Given a year, produce the decade</strong></em></p>
+<p>Given a year, such as 1994, we’d like to retrieve the decade; in this case, 1990. At first we might think that <code class="docutils literal notranslate"><span class="pre">round</span></code> is useful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mi">1994</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1990
+</pre></div>
+</div>
+</div>
+</div>
+<p>But it won’t work for years like 1997, since it will round up:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mi">1997</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a few approaches that do work. One way is to use the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator. Remember that <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code> returns the <em>remainder</em> upon dividing <code class="docutils literal notranslate"><span class="pre">x</span></code> by <code class="docutils literal notranslate"><span class="pre">y</span></code>. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1992</span> <span class="o">%</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find the decade, we can simply subtract the remainder obtained by dividing by ten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1992</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1992</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1990
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1997</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1997</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1990
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2000</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2000</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Placing this code in a function makes it so we don’t have to remember this trick, and makes our code more <strong>readable</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decade_from_year</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">year</span> <span class="o">-</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decade_from_year</span><span class="p">(</span><span class="mi">1992</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1990
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decade_from_year</span><span class="p">(</span><span class="mi">1997</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1990
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Given height and width, compute the area of a triangle</strong></em></p>
+<p>We need to define a function with <em>two</em> variables. We do so by separating the argument names with a comma, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area_of_triangle</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">base</span> <span class="o">*</span> <span class="n">height</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_of_triangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the <em>order</em> of the arguments matters. When <code class="docutils literal notranslate"><span class="pre">area_of_triangle(10,</span> <span class="pre">5)</span></code> is executed, Python assigns the value of 10 to <code class="docutils literal notranslate"><span class="pre">base</span></code> and assigns the value of 5 to <code class="docutils literal notranslate"><span class="pre">height</span></code>. If you wish, you can use the keyword argument form to call the function, in which case arguments can be provided in any order. This is slightly more readable, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_of_triangle</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01-getting_started"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="data_types-bool.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5.3. </span>Booleans</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../02-data_sets/arrays.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Lists and NumPy Arrays</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Parker Addison and Justin Eldridge<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

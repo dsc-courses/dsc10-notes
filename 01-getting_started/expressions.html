@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Expressions &#8212; DSC 10 Course Notes</title>
+    <title>3. Expressions &#8212; Introduction to (Baby)Pandas</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,8 +28,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -40,22 +40,26 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Variables" href="variables.html" />
+    <link rel="next" title="4. Calling Functions" href="functions.html" />
     <link rel="prev" title="2. First Steps with Notebooks" href="first_steps.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -80,7 +84,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">DSC 10 Course Notes</h1>
+      <h1 class="site-logo" id="site-title">Introduction to (Baby)Pandas</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -110,18 +114,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variables.html">
-   4. Variables
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
-   5. Functions and Imports
+   4. Calling Functions
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="data_types.html">
-   6. Data Types
+   5. Data Types
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -131,20 +130,25 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="data_types-numeric.html">
-     6.1. Numbers
+     5.1. Numbers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_types-strings.html">
-     6.2. Strings
+     5.2. Text
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_types-bool.html">
-     6.3. Booleans
+     5.3. Booleans
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions-defining.html">
+   6. Defining Functions
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -155,12 +159,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../02-data_sets/arrays.html">
-   7. Lists and Arrays
+   7. Lists and NumPy Arrays
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-data_sets/dataframes.html">
-   8. DataFrames
+   8. (Baby)Pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
@@ -180,100 +184,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-data_sets/apply.html">
-   12. Defining and Applying Functions
+   12. Applying Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-data_sets/merging.html">
-   13. Merging data sets
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  3. Visualization
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/intro.html">
-   14. Plotting with Babypandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/scatter.html">
-   15. Scatter Plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/line.html">
-   16. Line graphs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/bar.html">
-   17. Bar charts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  4. Probability and Simulation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/probability_and_simulation.html">
-   18. Probability and simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/1_populations_and_samples.html">
-   19. Populations and Samples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/2_parameters_and_statistics.html">
-   20. Parameters and statistics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  5. Hypothesis Testing
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-hypothesis_testing/1_hypothesis_tests.html">
-   21. Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-hypothesis_testing/2_permutation_tests.html">
-   22. Permutation Tests
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  6. Estimation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/1_bootstrap.html">
-   23. Parameter Estimation and Bootstrap
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/2_confidence_intervals.html">
-   24. Confidence Intervals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/3_ht_using_intervals.html">
-   25. Hypothesis Tests for Parameters using Confidence Intervals
+   13. Merging
   </a>
  </li>
 </ul>
@@ -285,17 +201,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../how_to_read.html">
-   26. How To Read These Notes
+   14. How To Read These Notes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../glossary.html">
-   27. All Terms and Tips
+   15. All Terms and Tips
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../examples/examples.html">
-   28. Example Notebooks
+   16. Example Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -305,14 +221,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../examples/blank_notebook.html">
-     28.1. Blank Notebook
+     16.1. Blank Notebook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../genindex.html">
-   29. Index
+   17. Index
   </a>
  </li>
 </ul>
@@ -361,7 +277,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -418,7 +334,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -429,10 +345,29 @@
   <a class="reference internal nav-link" href="#python-as-a-calculator">
    3.1. Python as a Calculator
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     3.1.1. Example
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example">
-   3.2. Example
+  <a class="reference internal nav-link" href="#saving-the-results">
+   3.2. Saving the results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.1. Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kernel-the-brains-of-a-notebook">
+   3.3. The Kernel: The “Brains” of a Notebook
   </a>
  </li>
 </ul>
@@ -443,7 +378,54 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Expressions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-as-a-calculator">
+   3.1. Python as a Calculator
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     3.1.1. Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-the-results">
+   3.2. Saving the results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.1. Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-kernel-the-brains-of-a-notebook">
+   3.3. The Kernel: The “Brains” of a Notebook
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="expressions">
@@ -520,7 +502,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/nix-shell.IKXEjZ/ipykernel_4609/942746658.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">3</span> <span class="n">x</span> <span class="mi">8</span>
       <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -587,9 +569,8 @@ In particular, arithmetic expressions can be combined just as you might imagine.
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Question</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Answer</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Suppose the parenthesis are removed from <code class="docutils literal notranslate"><span class="pre">(12</span> <span class="pre">+</span> <span class="pre">3)*5</span> <span class="pre">+</span> <span class="pre">40</span></code>. What is the result?</p>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>67</p>
 </div></div>
-</div>
 <div class="section" id="example">
-<h2><span class="section-number">3.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.1.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>How many seconds are in one year? There are 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day, and 365 days in a year, for a total of</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,6 +600,261 @@ In particular, arithmetic expressions can be combined just as you might imagine.
 </div>
 </div>
 </div>
+<div class="section" id="saving-the-results">
+<h2><span class="section-number">3.2. </span>Saving the results<a class="headerlink" href="#saving-the-results" title="Permalink to this headline">¶</a></h2>
+<p>When performing a long computation, it is often useful to store the result of a calculation so that we can use it again later. In most programming languages, we can do this by giving a <em>name</em> to the result of an expression. In Python, the result of an expression can be given a name using <code class="docutils literal notranslate"><span class="pre">=</span></code>. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_answer_to_everything</span> <span class="o">=</span> <span class="mi">21</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This line of code stores the number <code class="docutils literal notranslate"><span class="pre">42</span></code> in a <strong>variable</strong> named <code class="docutils literal notranslate"><span class="pre">the_answer_to_everything</span></code>. To recall the value of this variable, we can write its name in a cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_answer_to_everything</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use this variable in expressions. For example, to add 12 to <code class="docutils literal notranslate"><span class="pre">the_answer_to_everthing</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_answer_to_everything</span> <span class="o">+</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54
+</pre></div>
+</div>
+</div>
+</div>
+<p>Multiple variables can be defined in the same cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And multiple variables can be used in the same expression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Names can be reassigned. Up above, we assigned the value of 1 to the variable <code class="docutils literal notranslate"><span class="pre">a</span></code>. If we change our mind and want to assign, say, 99 instead, we simply do as such:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">99</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> is 99, and its previous value has been “forgotten”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that a cell containing only an assignment has no output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_year</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">365</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This might seem strange: in the previous section, the result of our expressions was displayed as the cell’s output. What gives?</p>
+<p>The reason we see no output is because the code <code class="docutils literal notranslate"><span class="pre">seconds_in_a_year</span> <span class="pre">=</span> <span class="pre">60</span> <span class="pre">*</span> <span class="pre">60</span> <span class="pre">*</span> <span class="pre">24</span> <span class="pre">*</span> <span class="pre">365</span></code> is not an <strong>expression</strong>, it is a <strong>statement</strong>. While expressions have values, statements do not. When a notebook cell is run, the value of the last line in the cell is used as the output. But since an assignment statement has no value, there is no value to print.</p>
+<p>However, the line of code consisting only of a variable’s name <em>is</em> an expression – its value is the value of the variable. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31536000
+</pre></div>
+</div>
+</div>
+</div>
+<p>This suggests the following workaround to the fact that assignments result in no output:</p>
+<div class="jupytertip admonition" id="jupytertip-0">
+<p class="admonition-title">Jupyter Tip</p>
+<p>To have Jupyter display the value of a variable that has just been assigned, write the variable’s name as the last line of the cell. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>number_of_seconds_in_a_year = 60 * 60 * 24 * 365
+number_of_seconds_in_a_year
+</pre></div>
+</div>
+</div>
+<p>Testing it out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seconds_in_a_year</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">365</span>
+<span class="n">seconds_in_a_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31536000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Valid names may include letters, underscores, and numbers – but they must start with a letter or underscore. Names are <strong>case-sensitive</strong>, meaning that <code class="docutils literal notranslate"><span class="pre">My_variable</span></code> and <code class="docutils literal notranslate"><span class="pre">my_variable</span></code> are two different, distinct names.</p>
+<p>You can experiment with variable assignments in order to get a better feeling for how Python works. For instance, suppose we define two variables, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and a third variable <code class="docutils literal notranslate"><span class="pre">c</span></code> to be their sum:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that, as expected, the value of <code class="docutils literal notranslate"><span class="pre">c</span></code> is 8. Now suppose we create and run a new code cell containing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we were to print the value of <code class="docutils literal notranslate"><span class="pre">c</span></code>, what would we see? Would it still be 8? Or now it “update” to become 45 now that <code class="docutils literal notranslate"><span class="pre">a</span></code> has changed? Try it by creating a new cell and writing the necessary code. The answer is below:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Question</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Answer</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Suppose we were to print the variable <code class="docutils literal notranslate"><span class="pre">c</span></code>. What would we observe its value to be?</p>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>8.0</p>
+</div></div>
+<div class="section" id="id1">
+<h3><span class="section-number">3.2.1. </span>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>A lightyear is a unit of measurement equal to the distance that light travels in one Earth year. Because light is very fast, a lightyear is quite a large distance.</p>
+<p>Suppose we want to calculate the number of lightyears between the Earth and the Sun. Let’s start by assuming that we know two things:</p>
+<ol class="simple">
+<li><p>The speed of light is 186,000 miles per second</p></li>
+<li><p>The Earth is 93 million miles away from the sun</p></li>
+</ol>
+<p>Here’s our strategy: we’ll first calculate how long a lightyear is in miles, then we’ll divide 93 million miles by this number to find how many lightyears are between the Sun and the Earth.</p>
+<p>So how long is a lightyear, in miles? That is, how far does light travel in one year. Well, it travels 186,000 miles per second. We have already calculated the number of seconds in a year above, and stored the result in a variable called <code class="docutils literal notranslate"><span class="pre">seconds_in_a_year</span></code>. Therefore, light travels:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>The underscore in <code class="docutils literal notranslate"><span class="pre">186_000</span></code> does nothing – Python ignores it. But it makes it easier for us humans to see how large the number is. If you’d like, you can omit it entirely.</p>
+</div>
+<p>hours in one day. And since there are 365 days in a (normal) year, light travels</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">186_000</span> <span class="o">*</span> <span class="n">seconds_in_a_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5865696000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>miles in one year. Now we can get what we came for. Dividing 93 million by this number will give us the distance to the Sun in lightyears:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">93_000_000</span> <span class="o">/</span> <span class="mi">5865696000000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5854895991882292e-05
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is a relatively small number expressed in scientific notation. Remember that <code class="docutils literal notranslate"><span class="pre">1.585e-5</span></code> is shorthand for <span class="math notranslate nohighlight">\(1.585 \times 10^{-5}\)</span>.</p>
+<div class="admonition tip" id="tip-0">
+<p class="admonition-title">Tip</p>
+<p>Giving names to variables makes your code easier to understand. It’s often a good idea to break a long calculation up into intermediate steps and give names to the result of each part.</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-kernel-the-brains-of-a-notebook">
+<h2><span class="section-number">3.3. </span>The Kernel: The “Brains” of a Notebook<a class="headerlink" href="#the-kernel-the-brains-of-a-notebook" title="Permalink to this headline">¶</a></h2>
+<p>When we define a new variable, we expect the notebook to remember its value. But where is this value kept, precisely?</p>
+<p>It might help to understand a little more about how notebooks work. When you launch a Jupyter notebook, an instance of Python called a <strong>kernel</strong> is started on a remote server. When you run a cell, the code is sent over the internet to the kernel, which then evaluates the code and sends back the result for display in our browser. In this way, the kernel is the “brain” of the notebook, since it not only does the calculations, but also remembers the values of the variables we have defined.</p>
+<p>Just knowing that the kernel exists can help us better understand how notebooks work, and therefore avoid some common mistakes. Consider the following problematic situation. You need to calculate the area of a triangle, so your first define variables <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> as such:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You then use the formula for the area of a triangle, but make a mistake: you forget to multiple by 1/2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">base</span> <span class="o">*</span> <span class="n">height</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point, the kernel has the following values for each variable:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">base</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code>: 12</p></li>
+</ul>
+<p>Unfortunately, you don’t recognize the mistake in the area formula immediately. You continue on, creating new code cells and executing them.</p>
+<p>Later, you are working with a different shape and <em>overwrite</em> the <code class="docutils literal notranslate"><span class="pre">height</span></code> variable, giving it a new value of 10:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the kernel has the following values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">base</span></code>: 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: 10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code>: 12</p></li>
+</ul>
+<p>Note that the value of <code class="docutils literal notranslate"><span class="pre">area</span></code> did not change since we did not re-run the cell containing its definition.</p>
+<p>Now suppose that you realize that you got the formula for the area of a triangle wrong. You go back and fix the cell and re-run it. The question is: which value of <code class="docutils literal notranslate"><span class="pre">height</span></code> is used? The value 4, from above the cell? Or the value 10 from below? Try it and see! You’ll find that the new value of <code class="docutils literal notranslate"><span class="pre">height</span></code> is what is used when re-computing the area. This is obviously not what we wanted.</p>
+<p>It turns out that it isn’t the order of the cells <em>within</em> the notebook that matters, it is the order in which they are <em>executed</em>. Typically, cells are executed in the order in which they appear in the notebook, but there are many instances where the cells are executed out-of-order. In such instances, weird “bugs” can occur, such as the one described above.</p>
+<p>Luckily there is a simple fix to this problem. Select “Kernel -&gt; Restart and Run All” from the menu. This will restart the kernel, causing it to forget the value of all variables it currently knows. All of the cells will also be re-run, from top to bottom. Restarting a kernel like this is like pushing “reset”.</p>
+<div class="jupytertip admonition" id="jupytertip-1">
+<p class="admonition-title">Jupyter Tip</p>
+<p>If you notice strange behavior while working with a Jupyter notebook, remember the number one rule of debugging: try turning it off and then back on. The equivalent of this with a Jupyter notebook is selecting “Kernel -&gt; Restart and Run All” from the top menu.</p>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -642,8 +878,8 @@ In particular, arithmetic expressions can be combined just as you might imagine.
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="first_steps.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -652,27 +888,25 @@ In particular, arithmetic expressions can be combined just as you might imagine.
             <p class="prev-next-title"><span class="section-number">2. </span>First Steps with Notebooks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="variables.html" title="next page">
+    <a class='right-next' id="next-link" href="functions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Variables</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Calling Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Parker Addison and Justin Eldridge<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Parker Addison and Justin Eldridge<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

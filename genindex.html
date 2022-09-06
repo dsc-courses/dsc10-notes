@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; DSC 10 Course Notes</title>
+    <title>Index &#8212; Introduction to (Baby)Pandas</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,8 +28,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -40,12 +40,21 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,7 +80,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">DSC 10 Course Notes</h1>
+      <h1 class="site-logo" id="site-title">Introduction to (Baby)Pandas</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -101,18 +110,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-getting_started/variables.html">
-   4. Variables
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="01-getting_started/functions.html">
-   5. Functions and Imports
+   4. Calling Functions
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01-getting_started/data_types.html">
-   6. Data Types
+   5. Data Types
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -122,20 +126,25 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-numeric.html">
-     6.1. Numbers
+     5.1. Numbers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-strings.html">
-     6.2. Strings
+     5.2. Text
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-bool.html">
-     6.3. Booleans
+     5.3. Booleans
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-getting_started/functions-defining.html">
+   6. Defining Functions
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -146,12 +155,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/arrays.html">
-   7. Lists and Arrays
+   7. Lists and NumPy Arrays
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/dataframes.html">
-   8. DataFrames
+   8. (Baby)Pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
@@ -171,100 +180,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/apply.html">
-   12. Defining and Applying Functions
+   12. Applying Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/merging.html">
-   13. Merging data sets
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  3. Visualization
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/intro.html">
-   14. Plotting with Babypandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/scatter.html">
-   15. Scatter Plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/line.html">
-   16. Line graphs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/bar.html">
-   17. Bar charts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  4. Probability and Simulation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/probability_and_simulation.html">
-   18. Probability and simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/1_populations_and_samples.html">
-   19. Populations and Samples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/2_parameters_and_statistics.html">
-   20. Parameters and statistics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  5. Hypothesis Testing
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="05-hypothesis_testing/1_hypothesis_tests.html">
-   21. Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-hypothesis_testing/2_permutation_tests.html">
-   22. Permutation Tests
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  6. Estimation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/1_bootstrap.html">
-   23. Parameter Estimation and Bootstrap
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/2_confidence_intervals.html">
-   24. Confidence Intervals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/3_ht_using_intervals.html">
-   25. Hypothesis Tests for Parameters using Confidence Intervals
+   13. Merging
   </a>
  </li>
 </ul>
@@ -276,17 +197,17 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="how_to_read.html">
-   26. How To Read These Notes
+   14. How To Read These Notes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="glossary.html">
-   27. All Terms and Tips
+   15. All Terms and Tips
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="examples/examples.html">
-   28. Example Notebooks
+   16. Example Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -296,14 +217,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="examples/blank_notebook.html">
-     28.1. Blank Notebook
+     16.1. Blank Notebook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   29. Index
+   17. Index
   </a>
  </li>
 </ul>
@@ -369,78 +290,46 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Index</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
 
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
+ <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
- | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
- | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
- | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#N"><strong>N</strong></a>
- | <a href="#O"><strong>O</strong></a>
- | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
- | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    alternative hypothesi
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-2">Hypothesis Testing</a>
-</li>
-        <li><a href="05-hypothesis_testing/2_permutation_tests.html#index-2">Permutation Tests</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    association
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-12">Plotting with Babypandas</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    bar chart
-
-      <ul>
-        <li><a href="03-visualization/bar.html#index-0">Bar charts</a>
-</li>
-        <li><a href="03-visualization/intro.html#index-10">Plotting with Babypandas</a>, <a href="03-visualization/intro.html#index-5">[1]</a>
-</li>
-      </ul></li>
       <li><a href="glossary.html#term-boolean"><strong>boolean</strong></a>
 
       <ul>
@@ -459,48 +348,16 @@
         <li><a href="02-data_sets/querying.html#index-2">Querying</a>
 </li>
       </ul></li>
-      <li>
-    bootstrapping
-
-      <ul>
-        <li><a href="06-estimation/2_confidence_intervals.html#index-1">Confidence Intervals</a>
-</li>
-        <li><a href="06-estimation/1_bootstrap.html#index-3">Parameter Estimation and Bootstrap</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    categorical variable
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-3">Plotting with Babypandas</a>
-</li>
-      </ul></li>
-      <li>
-    comparison operator
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-3">Probability and simulation</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    confidence interval
-
-      <ul>
-        <li><a href="06-estimation/2_confidence_intervals.html#index-3">Confidence Intervals</a>
-</li>
-      </ul></li>
       <li><a href="glossary.html#term-csv"><strong>csv</strong></a>
 
       <ul>
-        <li><a href="02-data_sets/dataframes.html#index-5">DataFrames</a>
+        <li><a href="02-data_sets/dataframes.html#index-5">(Baby)Pandas DataFrames</a>
 </li>
       </ul></li>
   </ul></td>
@@ -512,14 +369,7 @@
       <li><a href="glossary.html#term-dataframe"><strong>dataframe</strong></a>
 
       <ul>
-        <li><a href="02-data_sets/dataframes.html#index-0">DataFrames</a>
-</li>
-      </ul></li>
-      <li>
-    distribution
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-6">Plotting with Babypandas</a>
+        <li><a href="02-data_sets/dataframes.html#index-0">(Baby)Pandas DataFrames</a>
 </li>
       </ul></li>
   </ul></td>
@@ -527,29 +377,7 @@
       <li><a href="glossary.html#term-dot-notation"><strong>dot notation</strong></a>
 
       <ul>
-        <li><a href="01-getting_started/data_types-strings.html#index-2">Strings</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="E">E</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    event
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-4">Probability and simulation</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    experiment
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-1">Probability and simulation</a>
+        <li><a href="01-getting_started/data_types-strings.html#index-2">Text</a>
 </li>
       </ul></li>
   </ul></td>
@@ -564,59 +392,16 @@
         <li><a href="01-getting_started/data_types-numeric.html#index-1">Numbers</a>
 </li>
       </ul></li>
-      <li>
-    for loop
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-6">Hypothesis Testing</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    frequentist
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-6">Probability and simulation</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="H">H</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    histogram
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-7">Plotting with Babypandas</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    independent
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-5">Probability and simulation</a>
-</li>
-      </ul></li>
       <li><a href="glossary.html#term-index"><strong>index</strong></a>
 
       <ul>
-        <li><a href="02-data_sets/arrays.html#index-1">Lists and Arrays</a>
-</li>
-      </ul></li>
-      <li>
-    individual
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-0">Plotting with Babypandas</a>
+        <li><a href="02-data_sets/arrays.html#index-1">Lists and NumPy Arrays</a>
 </li>
       </ul></li>
   </ul></td>
@@ -625,13 +410,6 @@
 
       <ul>
         <li><a href="01-getting_started/data_types-numeric.html#index-0">Numbers</a>
-</li>
-      </ul></li>
-      <li>
-    interval estimate
-
-      <ul>
-        <li><a href="06-estimation/2_confidence_intervals.html#index-2">Confidence Intervals</a>
 </li>
       </ul></li>
   </ul></td>
@@ -643,38 +421,7 @@
       <li><a href="glossary.html#term-keyword-argument"><strong>keyword argument</strong></a>
 
       <ul>
-        <li><a href="02-data_sets/dataframes.html#index-3">DataFrames</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="L">L</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    level of significance
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-8">Hypothesis Testing</a>
-</li>
-        <li><a href="05-hypothesis_testing/2_permutation_tests.html#index-0">Permutation Tests</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    line chart
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-9">Plotting with Babypandas</a>
-</li>
-      </ul></li>
-      <li>
-    line graph
-
-      <ul>
-        <li><a href="03-visualization/line.html#index-0">Line graphs</a>
+        <li><a href="02-data_sets/dataframes.html#index-3">(Baby)Pandas DataFrames</a>
 </li>
       </ul></li>
   </ul></td>
@@ -686,134 +433,11 @@
       <li><a href="glossary.html#term-method-chaining"><strong>method chaining</strong></a>
 
       <ul>
+        <li><a href="02-data_sets/dataframes.html#index-4">(Baby)Pandas DataFrames</a>
+</li>
         <li><a href="02-data_sets/accessing.html#index-1">Accessing and Sorting</a>
 </li>
-        <li><a href="02-data_sets/dataframes.html#index-4">DataFrames</a>
-</li>
-        <li><a href="02-data_sets/arrays.html#index-0">Lists and Arrays</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    model
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-0">Hypothesis Testing</a>
-</li>
-        <li><a href="04-probability_and_simulation/1_populations_and_samples.html#index-2">Populations and Samples</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="N">N</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    null hypothesi
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-1">Hypothesis Testing</a>
-</li>
-        <li><a href="05-hypothesis_testing/2_permutation_tests.html#index-1">Permutation Tests</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    numerical variable
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-2">Plotting with Babypandas</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="O">O</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    outcome
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-2">Probability and simulation</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    p value
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-7">Hypothesis Testing</a>
-</li>
-      </ul></li>
-      <li>
-    permuting
-
-      <ul>
-        <li><a href="05-hypothesis_testing/2_permutation_tests.html#index-3">Permutation Tests</a>
-</li>
-      </ul></li>
-      <li>
-    point estimate
-
-      <ul>
-        <li><a href="06-estimation/2_confidence_intervals.html#index-0">Confidence Intervals</a>
-</li>
-        <li><a href="06-estimation/1_bootstrap.html#index-0">Parameter Estimation and Bootstrap</a>
-</li>
-      </ul></li>
-      <li>
-    population
-
-      <ul>
-        <li><a href="04-probability_and_simulation/1_populations_and_samples.html#index-0">Populations and Samples</a>
-</li>
-      </ul></li>
-      <li>
-    population distribution
-
-      <ul>
-        <li><a href="04-probability_and_simulation/1_populations_and_samples.html#index-1">Populations and Samples</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    population parameter
-
-      <ul>
-        <li><a href="04-probability_and_simulation/2_parameters_and_statistics.html#index-0">Parameters and statistics</a>
-</li>
-      </ul></li>
-      <li>
-    probabilitie
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-3">Hypothesis Testing</a>
-</li>
-      </ul></li>
-      <li>
-    probability
-
-      <ul>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-0">Probability and simulation</a>
-</li>
-      </ul></li>
-      <li>
-    proportion
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-4">Plotting with Babypandas</a>
-</li>
-        <li><a href="04-probability_and_simulation/probability_and_simulation.html#index-7">Probability and simulation</a>
+        <li><a href="02-data_sets/arrays.html#index-0">Lists and NumPy Arrays</a>
 </li>
       </ul></li>
   </ul></td>
@@ -831,82 +455,21 @@
   </ul></td>
 </tr></table>
 
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    resample
-
-      <ul>
-        <li><a href="06-estimation/1_bootstrap.html#index-2">Parameter Estimation and Bootstrap</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    sample
+      <li><a href="glossary.html#term-shape"><strong>shape</strong></a>
 
       <ul>
-        <li><a href="04-probability_and_simulation/1_populations_and_samples.html#index-3">Populations and Samples</a>
-</li>
-      </ul></li>
-      <li>
-    sample distribution
-
-      <ul>
-        <li><a href="04-probability_and_simulation/1_populations_and_samples.html#index-4">Populations and Samples</a>
-</li>
-      </ul></li>
-      <li>
-    sample statistic
-
-      <ul>
-        <li><a href="04-probability_and_simulation/2_parameters_and_statistics.html#index-1">Parameters and statistics</a>
-</li>
-      </ul></li>
-      <li>
-    sampling distribution
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-5">Hypothesis Testing</a>
-</li>
-        <li><a href="06-estimation/1_bootstrap.html#index-1">Parameter Estimation and Bootstrap</a>
-</li>
-        <li><a href="04-probability_and_simulation/2_parameters_and_statistics.html#index-2">Parameters and statistics</a>
+        <li><a href="02-data_sets/dataframes.html#index-1">(Baby)Pandas DataFrames</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    scatter plot
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-11">Plotting with Babypandas</a>
-</li>
-        <li><a href="03-visualization/scatter.html#index-0">Scatter Plots</a>
-</li>
-      </ul></li>
-      <li>
-    sequence
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-8">Plotting with Babypandas</a>
-</li>
-      </ul></li>
-      <li><a href="glossary.html#term-shape"><strong>shape</strong></a>
-
-      <ul>
-        <li><a href="02-data_sets/dataframes.html#index-1">DataFrames</a>
-</li>
-      </ul></li>
       <li><a href="glossary.html#term-string"><strong>string</strong></a>
 
       <ul>
-        <li><a href="01-getting_started/data_types-strings.html#index-0">Strings</a>
+        <li><a href="01-getting_started/data_types-strings.html#index-0">Text</a>
 </li>
       </ul></li>
   </ul></td>
@@ -918,31 +481,9 @@
       <li><a href="glossary.html#term-table-index"><strong>table index</strong></a>
 
       <ul>
+        <li><a href="02-data_sets/dataframes.html#index-2">(Baby)Pandas DataFrames</a>
+</li>
         <li><a href="02-data_sets/accessing.html#index-0">Accessing and Sorting</a>
-</li>
-        <li><a href="02-data_sets/dataframes.html#index-2">DataFrames</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    test statistic
-
-      <ul>
-        <li><a href="05-hypothesis_testing/1_hypothesis_tests.html#index-4">Hypothesis Testing</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="V">V</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    variable
-
-      <ul>
-        <li><a href="03-visualization/intro.html#index-1">Plotting with Babypandas</a>
 </li>
       </ul></li>
   </ul></td>
@@ -954,7 +495,7 @@
       <li><a href="glossary.html#term-web-scraping"><strong>web scraping</strong></a>
 
       <ul>
-        <li><a href="01-getting_started/data_types-strings.html#index-1">Strings</a>
+        <li><a href="01-getting_started/data_types-strings.html#index-1">Text</a>
 </li>
       </ul></li>
   </ul></td>
@@ -964,23 +505,21 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Parker Addison and Justin Eldridge<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Parker Addison and Justin Eldridge<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

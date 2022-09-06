@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27. All Terms and Tips &#8212; DSC 10 Course Notes</title>
+    <title>15. All Terms and Tips &#8212; Introduction to (Baby)Pandas</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,8 +28,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -40,22 +40,24 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="28. Example Notebooks" href="examples/examples.html" />
-    <link rel="prev" title="26. How To Read These Notes" href="how_to_read.html" />
+    <link rel="next" title="16. Example Notebooks" href="examples/examples.html" />
+    <link rel="prev" title="14. How To Read These Notes" href="how_to_read.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -79,7 +81,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">DSC 10 Course Notes</h1>
+      <h1 class="site-logo" id="site-title">Introduction to (Baby)Pandas</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -109,18 +111,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01-getting_started/variables.html">
-   4. Variables
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="01-getting_started/functions.html">
-   5. Functions and Imports
+   4. Calling Functions
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01-getting_started/data_types.html">
-   6. Data Types
+   5. Data Types
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -130,20 +127,25 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-numeric.html">
-     6.1. Numbers
+     5.1. Numbers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-strings.html">
-     6.2. Strings
+     5.2. Text
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01-getting_started/data_types-bool.html">
-     6.3. Booleans
+     5.3. Booleans
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-getting_started/functions-defining.html">
+   6. Defining Functions
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -154,12 +156,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/arrays.html">
-   7. Lists and Arrays
+   7. Lists and NumPy Arrays
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/dataframes.html">
-   8. DataFrames
+   8. (Baby)Pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
@@ -179,100 +181,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/apply.html">
-   12. Defining and Applying Functions
+   12. Applying Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-data_sets/merging.html">
-   13. Merging data sets
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  3. Visualization
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/intro.html">
-   14. Plotting with Babypandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/scatter.html">
-   15. Scatter Plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/line.html">
-   16. Line graphs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-visualization/bar.html">
-   17. Bar charts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  4. Probability and Simulation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/probability_and_simulation.html">
-   18. Probability and simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/1_populations_and_samples.html">
-   19. Populations and Samples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-probability_and_simulation/2_parameters_and_statistics.html">
-   20. Parameters and statistics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  5. Hypothesis Testing
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="05-hypothesis_testing/1_hypothesis_tests.html">
-   21. Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-hypothesis_testing/2_permutation_tests.html">
-   22. Permutation Tests
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  6. Estimation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/1_bootstrap.html">
-   23. Parameter Estimation and Bootstrap
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/2_confidence_intervals.html">
-   24. Confidence Intervals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-estimation/3_ht_using_intervals.html">
-   25. Hypothesis Tests for Parameters using Confidence Intervals
+   13. Merging
   </a>
  </li>
 </ul>
@@ -284,17 +198,17 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="how_to_read.html">
-   26. How To Read These Notes
+   14. How To Read These Notes
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   27. All Terms and Tips
+   15. All Terms and Tips
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="examples/examples.html">
-   28. Example Notebooks
+   16. Example Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -304,14 +218,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="examples/blank_notebook.html">
-     28.1. Blank Notebook
+     16.1. Blank Notebook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="genindex.html">
-   29. Index
+   17. Index
   </a>
  </li>
 </ul>
@@ -360,7 +274,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -394,7 +308,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -403,17 +317,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#glossary-of-terms">
-   27.1. Glossary of Terms
+   15.1. Glossary of Terms
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#general-tips">
-   27.2. General Tips
+   15.2. General Tips
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jupyter-tips">
-   27.3. Jupyter Tips
+   15.3. Jupyter Tips
   </a>
  </li>
 </ul>
@@ -424,13 +338,46 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>All Terms and Tips</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#glossary-of-terms">
+   15.1. Glossary of Terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-tips">
+   15.2. General Tips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-tips">
+   15.3. Jupyter Tips
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="all-terms-and-tips">
-<h1><span class="section-number">27. </span>All Terms and Tips<a class="headerlink" href="#all-terms-and-tips" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">15. </span>All Terms and Tips<a class="headerlink" href="#all-terms-and-tips" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="glossary-of-terms">
-<h2><span class="section-number">27.1. </span>Glossary of Terms<a class="headerlink" href="#glossary-of-terms" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">15.1. </span>Glossary of Terms<a class="headerlink" href="#glossary-of-terms" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary">
 <dt id="term-boolean">boolean<a class="headerlink" href="#term-boolean" title="Permalink to this term">¶</a></dt><dd><p>The data type for logical truthiness or falseiness. Often arises from comparisons. Has the type <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 <p>E.g. <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">bool(0)</span></code></p>
@@ -524,7 +471,7 @@
 </dl>
 </div>
 <div class="section" id="general-tips">
-<h2><span class="section-number">27.2. </span>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">15.2. </span>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this headline">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can place underscores in large numbers to make them easier to read -- Python will ignore them. For instance, it is hard to read <code class="docutils literal notranslate"><span class="pre">10000000000</span></code>, but somewhat easier to read <code class="docutils literal notranslate"><span class="pre">10_000_000_000</span></code>.</p>
@@ -541,14 +488,14 @@
 <p>(The original entry can be found <a class="reference external" href="01-getting_started/data_types-numeric.html#tip-1"><em>here</em></a>.)</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
+<p>Giving names to variables makes your code easier to understand. It's often a good idea to break a long calculation up into intermediate steps and give names to the result of each part.</p>
+</div>
+<p>(The original entry can be found <a class="reference external" href="01-getting_started/expressions.html#tip-0"><em>here</em></a>.)</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>A big part of learning to program is experimenting with code to see what does (and doesn't) work. Luckily, Jupyter notebooks make this easy!</p>
 </div>
 <p>(The original entry can be found <a class="reference external" href="01-getting_started/functions.html#tip-0"><em>here</em></a>.)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Giving names to variables makes your code easier to understand. It's often a good idea to break a long calculation up into intermediate steps and give names to the result of each part.</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="01-getting_started/variables.html#tip-0"><em>here</em></a>.)</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In case you're curious, it's pronounced &quot;num-pie&quot;.</p>
@@ -590,34 +537,28 @@
 <p>The very top line points to <em>where</em> the error occurred, and the very bottom lines explain <em>why</em> the error occurred.</p>
 </div>
 <p>(The original entry can be found <a class="reference external" href="02-data_sets/querying.html#tip-2"><em>here</em></a>.)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Questions about your data set should also be looked up online! Effective data exploration revolves around quickly becoming an semi-expert in the domain of the data set.</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="03-visualization/intro.html#tip-0"><em>here</em></a>.)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The upper-bound-exclusionary nature of histogram bins and ranges can make it confusing to know if you're accidentally cutting of data. Feel free to evaluate the range in its own cell, and make sure that the last value in the sequence is greater than the maximum value of the feature.</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="03-visualization/intro.html#tip-1"><em>here</em></a>.)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You may notice that probabilities are defined as between 0 and 1, but sometimes we use a percentage. Mathematically they're the same, <span class="math notranslate nohighlight">\(100\% = 100 \textit{ per cent} = \frac{100}{100} = 1.\)</span> But while percents can be nice in spoken language, you should stay consistent and always work with probabilities expressed as fractions or decimals between 0 and 1 when performing calculations. This will make your life much easier and prevent you from pulling out your hair due to decimal place errors!</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="04-probability_and_simulation/probability_and_simulation.html#tip-0"><em>here</em></a>.)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Whenever you're using <code class="docutils literal notranslate"><span class="pre">|</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> you <em>must</em> use parentheses around the things you're comparing -- otherwise you'll get some weird errors or weirder results.</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="04-probability_and_simulation/probability_and_simulation.html#tip-1"><em>here</em></a>.)</p>
 </div>
 <div class="section" id="jupyter-tips">
-<h2><span class="section-number">27.3. </span>Jupyter Tips<a class="headerlink" href="#jupyter-tips" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">15.3. </span>Jupyter Tips<a class="headerlink" href="#jupyter-tips" title="Permalink to this headline">¶</a></h2>
 <div class="jupytertip admonition">
 <p class="admonition-title">Jupyter Tip</p>
 <p>You can see all of Python's string methods by typing <code class="docutils literal notranslate"><span class="pre">&quot;some</span> <span class="pre">string&quot;.</span></code> then hitting <kbd class="kbd docutils literal notranslate">Tab</kbd>.</p>
 </div>
 <p>(The original entry can be found <a class="reference external" href="01-getting_started/data_types-strings.html#jupytertip-0"><em>here</em></a>.)</p>
+<div class="jupytertip admonition">
+<p class="admonition-title">Jupyter Tip</p>
+<p>To have Jupyter display the value of a variable that has just been assigned, write the variable's name as the last line of the cell. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>number_of_seconds_in_a_year = 60 * 60 * 24 * 365
+number_of_seconds_in_a_year
+</pre></div>
+</div>
+</div>
+<p>(The original entry can be found <a class="reference external" href="01-getting_started/expressions.html#jupytertip-0"><em>here</em></a>.)</p>
+<div class="jupytertip admonition">
+<p class="admonition-title">Jupyter Tip</p>
+<p>If you notice strange behavior while working with a Jupyter notebook, remember the number one rule of debugging: try turning it off and then back on. The equivalent of this with a Jupyter notebook is selecting &quot;Kernel -&gt; Restart and Run All&quot; from the top menu.</p>
+</div>
+<p>(The original entry can be found <a class="reference external" href="01-getting_started/expressions.html#jupytertip-1"><em>here</em></a>.)</p>
 <div class="jupytertip admonition">
 <p class="admonition-title">Jupyter Tip</p>
 <p>Any changes you make to the notebook will be automatically saved at regular
@@ -642,20 +583,6 @@ shortcuts&quot; to see all of them.</p>
 <p>by itself in a code cell.</p>
 </div>
 <p>(The original entry can be found <a class="reference external" href="01-getting_started/functions.html#jupytertip-0"><em>here</em></a>.)</p>
-<div class="jupytertip admonition">
-<p class="admonition-title">Jupyter Tip</p>
-<p>To have Jupyter display the value of a variable that has just been assigned, write the variable's name as the last line of the cell. For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>number_of_seconds_in_a_year = 60 * 60 * 24 * 365
-number_of_seconds_in_a_year
-</pre></div>
-</div>
-</div>
-<p>(The original entry can be found <a class="reference external" href="01-getting_started/variables.html#jupytertip-0"><em>here</em></a>.)</p>
-<div class="jupytertip admonition">
-<p class="admonition-title">Jupyter Tip</p>
-<p>If you notice strange behavior while working with a Jupyter notebook, remember the number one rule of debugging: try turning it off and then back on. The equivalent of this with a Jupyter notebook is selecting &quot;Kernel -&gt; Restart and Run All&quot; from the top menu.</p>
-</div>
-<p>(The original entry can be found <a class="reference external" href="01-getting_started/variables.html#jupytertip-1"><em>here</em></a>.)</p>
 <div class="jupytertip admonition">
 <p class="admonition-title">Jupyter Tip</p>
 <p>You can ask Jupyter for some information on all of the Series methods available by writing <code class="docutils literal notranslate"><span class="pre">help(bpd.Series)</span></code>. The methods starting with two underscores (<code class="docutils literal notranslate"><span class="pre">__</span></code>) are called &quot;dunder&quot; methods, and implement special behavior. You're not meant to call them direcly, so you can pretty much ignore them.</p>
@@ -710,37 +637,35 @@ number_of_seconds_in_a_year
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="how_to_read.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">26. </span>How To Read These Notes</p>
+            <p class="prev-next-title"><span class="section-number">14. </span>How To Read These Notes</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="examples/examples.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Example Notebooks</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Example Notebooks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Parker Addison and Justin Eldridge<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Parker Addison and Justin Eldridge<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

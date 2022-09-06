@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Querying &#8212; DSC 10 Course Notes</title>
+    <title>10. Querying &#8212; Introduction to (Baby)Pandas</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -28,8 +28,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/jupytertip.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pagestyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -40,18 +40,20 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -80,7 +82,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">DSC 10 Course Notes</h1>
+      <h1 class="site-logo" id="site-title">Introduction to (Baby)Pandas</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -110,18 +112,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01-getting_started/variables.html">
-   4. Variables
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../01-getting_started/functions.html">
-   5. Functions and Imports
+   4. Calling Functions
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-getting_started/data_types.html">
-   6. Data Types
+   5. Data Types
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -131,20 +128,25 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-getting_started/data_types-numeric.html">
-     6.1. Numbers
+     5.1. Numbers
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-getting_started/data_types-strings.html">
-     6.2. Strings
+     5.2. Text
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-getting_started/data_types-bool.html">
-     6.3. Booleans
+     5.3. Booleans
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-getting_started/functions-defining.html">
+   6. Defining Functions
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -155,12 +157,12 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="arrays.html">
-   7. Lists and Arrays
+   7. Lists and NumPy Arrays
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dataframes.html">
-   8. DataFrames
+   8. (Baby)Pandas DataFrames
   </a>
  </li>
  <li class="toctree-l1">
@@ -180,100 +182,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="apply.html">
-   12. Defining and Applying Functions
+   12. Applying Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="merging.html">
-   13. Merging data sets
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  3. Visualization
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/intro.html">
-   14. Plotting with Babypandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/scatter.html">
-   15. Scatter Plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/line.html">
-   16. Line graphs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-visualization/bar.html">
-   17. Bar charts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  4. Probability and Simulation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/probability_and_simulation.html">
-   18. Probability and simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/1_populations_and_samples.html">
-   19. Populations and Samples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04-probability_and_simulation/2_parameters_and_statistics.html">
-   20. Parameters and statistics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  5. Hypothesis Testing
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-hypothesis_testing/1_hypothesis_tests.html">
-   21. Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-hypothesis_testing/2_permutation_tests.html">
-   22. Permutation Tests
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  6. Estimation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/1_bootstrap.html">
-   23. Parameter Estimation and Bootstrap
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/2_confidence_intervals.html">
-   24. Confidence Intervals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-estimation/3_ht_using_intervals.html">
-   25. Hypothesis Tests for Parameters using Confidence Intervals
+   13. Merging
   </a>
  </li>
 </ul>
@@ -285,17 +199,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../how_to_read.html">
-   26. How To Read These Notes
+   14. How To Read These Notes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../glossary.html">
-   27. All Terms and Tips
+   15. All Terms and Tips
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../examples/examples.html">
-   28. Example Notebooks
+   16. Example Notebooks
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -305,14 +219,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../examples/blank_notebook.html">
-     28.1. Blank Notebook
+     16.1. Blank Notebook
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../genindex.html">
-   29. Index
+   17. Index
   </a>
  </li>
 </ul>
@@ -361,7 +275,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -418,7 +332,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -545,7 +459,137 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Querying</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-with-boolean-arrays">
+   10.1. Querying with Boolean Arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   10.2. Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-fires-were-there-in-2018">
+     10.2.1. How many fires were there in 2018?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-was-the-combined-size-of-all-fires-in-2018">
+     10.2.2. What was the combined size of all fires in 2018?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-percentage-of-all-fires-are-caused-by-arson">
+     10.2.3. What percentage of all fires are caused by “arson”?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-fires-from-2018-occurred-in-san-diego-county">
+     10.2.4. How many fires from 2018 occurred in San Diego County?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-conditions">
+   10.3. Multiple Conditions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-operator">
+     10.3.1. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &amp;
+      </span>
+     </code>
+     Operator
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     10.3.2. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       |
+      </span>
+     </code>
+     Operator
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#never-use-and-or">
+     10.3.3. Never use
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+     /
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+     !
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-for-a-substring">
+   10.4. Searching for a Substring
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-trick-to-avoid-spurious-matches">
+     10.4.1. A Trick to Avoid Spurious Matches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-examples">
+   10.5. More Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-percentage-of-fires-occurred-in-september-or-october">
+     10.5.1. What percentage of fires occurred in September or October?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-fires-occurred-between-san-francisco-and-la-in-terms-of-latitude">
+     10.5.2. How many fires occurred between San Francisco and LA in terms of latitude?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-fires-larger-than-1000-acres-did-san-diego-have-in-the-1990s">
+     10.5.3. How many fires larger than 1000 acres did San Diego have in the 1990s?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="querying">
@@ -1850,7 +1894,7 @@ dtype: bool
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">IKXEjZ</span><span class="o">/</span><span class="n">ipykernel_4790</span><span class="o">/</span><span class="mf">240173064.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">with_regions</span><span class="p">[</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">with_regions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1_000_000</span> <span class="o">&amp;</span> <span class="n">with_regions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Region&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;NorCal&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">]</span>
@@ -2944,43 +2988,51 @@ Name: names, dtype: object
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nix</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">IKXEjZ</span><span class="o">/</span><span class="n">ipykernel_4790</span><span class="o">/</span><span class="mf">3926816054.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">calfire</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/babypandas/bpd.py</span> in <span class="ni">str</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">848</span>         <span class="c1"># AttributeError if the series does not consist of string values. We</span>
-<span class="g g-Whitespace">    </span><span class="mi">849</span>         <span class="c1"># use a property here to replicate this behavior.</span>
-<span class="ne">--&gt; </span><span class="mi">850</span>         <span class="k">return</span> <span class="n">SeriesStringMethods</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pd</span><span class="o">.</span><span class="n">str</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">851</span> 
-<span class="g g-Whitespace">    </span><span class="mi">852</span>     <span class="c1"># Formatting</span>
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.10/lib/python3.10/site-packages/babypandas/bpd.py:850,</span> in <span class="ni">Series.str</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="sd">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span><span class="sd"> String methods on Series.</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span><span class="sd"> &#39;&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">847</span> <span class="c1"># accessing the `.str` attribute of a pd.Series will raise an </span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span> <span class="c1"># AttributeError if the series does not consist of string values. We</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span> <span class="c1"># use a property here to replicate this behavior.</span>
+<span class="ne">--&gt; </span><span class="mi">850</span> <span class="k">return</span> <span class="n">SeriesStringMethods</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pd</span><span class="o">.</span><span class="n">str</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5485</span>         <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5486</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">5487</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5488</span> 
-<span class="g g-Whitespace">   </span><span class="mi">5489</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.10/lib/python3.10/site-packages/pandas/core/generic.py:5575,</span> in <span class="ni">NDFrame.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5568</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5569</span>     <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internal_names_set</span>
+<span class="g g-Whitespace">   </span><span class="mi">5570</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
+<span class="g g-Whitespace">   </span><span class="mi">5571</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
+<span class="g g-Whitespace">   </span><span class="mi">5572</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5573</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5574</span>     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5575</span> <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/accessor.py</span> in <span class="ni">__get__</span><span class="nt">(self, obj, cls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>             <span class="c1"># we&#39;re accessing the attribute of the class, i.e., Dataset.geo</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>         <span class="n">accessor_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="c1"># Replace the property with the accessor object. Inspired by:</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span>         <span class="c1"># https://www.pydanny.com/cached-property.html</span>
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.10/lib/python3.10/site-packages/pandas/core/accessor.py:182,</span> in <span class="ni">CachedAccessor.__get__</span><span class="nt">(self, obj, cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="c1"># we&#39;re accessing the attribute of the class, i.e., Dataset.geo</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span>
+<span class="ne">--&gt; </span><span class="mi">182</span> <span class="n">accessor_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="c1"># Replace the property with the accessor object. Inspired by:</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="c1"># https://www.pydanny.com/cached-property.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span> <span class="c1"># We need to use object.__setattr__ because we overwrite __setattr__ on</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="c1"># NDFrame</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">accessor_obj</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/strings/accessor.py</span> in <span class="ni">__init__</span><span class="nt">(self, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>         <span class="kn">from</span> <span class="nn">pandas.core.arrays.string_</span> <span class="kn">import</span> <span class="n">StringDtype</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span> 
-<span class="ne">--&gt; </span><span class="mi">168</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_inferred_dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_is_categorical</span> <span class="o">=</span> <span class="n">is_categorical_dtype</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_is_string</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">StringDtype</span><span class="p">)</span>
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.10/lib/python3.10/site-packages/pandas/core/strings/accessor.py:177,</span> in <span class="ni">StringMethods.__init__</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="kn">from</span> <span class="nn">pandas.core.arrays.string_</span> <span class="kn">import</span> <span class="n">StringDtype</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_inferred_dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_is_categorical</span> <span class="o">=</span> <span class="n">is_categorical_dtype</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_is_string</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">StringDtype</span><span class="p">)</span>
 
-<span class="nn">~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.8/lib/python3.8/site-packages/pandas/core/strings/accessor.py</span> in <span class="ni">_validate</span><span class="nt">(data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> 
-<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="k">if</span> <span class="n">inferred_dtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_types</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">225</span>             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can only use .str accessor with string values!&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="k">return</span> <span class="n">inferred_dtype</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span> 
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/dsc10-notes-5yRYveSa-py3.10/lib/python3.10/site-packages/pandas/core/strings/accessor.py:231,</span> in <span class="ni">StringMethods._validate</span><span class="nt">(data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="n">inferred_dtype</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">infer_dtype</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="n">inferred_dtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_types</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">231</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can only use .str accessor with string values!&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">return</span> <span class="n">inferred_dtype</span>
 
 <span class="ne">AttributeError</span>: Can only use .str accessor with string values!
 </pre></div>
@@ -3235,8 +3287,8 @@ Name: names, dtype: object
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="accessing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -3253,19 +3305,17 @@ Name: names, dtype: object
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Parker Addison and Justin Eldridge<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Parker Addison and Justin Eldridge<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
