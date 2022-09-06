@@ -1,30 +1,32 @@
-DSC 10 Course Notes
-===================
+Introduction to (Baby)Pandas
+============================
 
-Welcome to the [DSC 10](http://dsc10.com) course notes.
 
-DSC 10 is an introductory data science course which develops the core ideas of
-statistics via programming and simulation instead of the manipulation of
-mathematical formulae. At the same time, the course does not assume that the
-reader has any experience in programming; instead, we learn "just enough"
-programming to do data science. 
+In the zoo of tools used by data scientists,
+[Python](http://python.org) and
+[Pandas](http://pandas.pydata.org/)
+are two of the most popular.
+*Python* is a general purpose programming language known for its simple syntax
+and its vibrant ecosystem of third-party packages. *Pandas* is a Python package
+for exploring and analyzing large data sets. As a working data scientist,
+there's a very good chance that you'll be using each on a daily basis.
 
-DSC 10 is based on Berkeley's [Data 8](http://data8.org/). Likewise, these
-course notes are based on the textbook used in Data 8 &mdash; [*Computational and
-Inferential Thinking: The Foundations of Data
-Science*](https://inferentialthinking.com/chapters/intro.html) by Ani Adhikari,
-John DeNero, and David Wagner. Whereas Data 8 and *Computational and Inferential
-Thinking* introduce programming with tabular data using the
-[`datascience`](https://github.com/data-8/datascience) module, DSC 10 and these
-course notes instead use
-[`babypandas`](https://github.com/babypandas-dev/babypandas). `babypandas` is an
-opinionated subset of the popular `pandas` package designed with the
-novice data scientist in mind.
+While Pandas is a very powerful tool, it isn't simple. There are often several
+ways of doing the same thing. This can make it difficult to get started with
+Pandas, especially for those new to programming.
 
+Instead of tackling the full complexity of Pandas immediately, in these notes we
+will learn to use a simplified version of Pandas which we've called
+*BabyPandas*. As the name suggests, BabyPandas *is* Pandas, but smaller. To be
+precise, BabyPandas is a subset of Pandas, meaning that we have carefully
+taken some of the pieces of Pandas, but left much out. As a result, whatever
+code you write in BabyPandas will also work with Pandas, so you can be happy in
+the fact that you're learning one of the most powerful tools in modern data
+science.
 
 #### Authors and Contributors
 
-These course notes are authored by Parker Addison and Justin Eldridge.
+These notes are authored by Parker Addison and Justin Eldridge.
 Thank you to the following people who made various contributions:
 
 - Janine Tiefenbruck
