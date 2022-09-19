@@ -5,7 +5,7 @@ Notes on (Baby)Pandas
 In the zoo of tools used by data scientists,
 [Python](http://python.org) and
 [Pandas](http://pandas.pydata.org/)
-are two of the most popular.
+are two of the most popular animals.
 *Python* is a general purpose programming language known for its simple syntax
 and its vibrant ecosystem of third-party packages. *Pandas* is a Python package
 for exploring and analyzing large data sets. As a working data scientist,
