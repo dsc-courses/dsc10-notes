@@ -14,7 +14,7 @@ latex:
 
 launch_buttons:
     notebook_interface: classic
-    # jupyterhub_url: "https://datahub.ucsd.edu"
+    jupyterhub_url: "https://datahub.ucsd.edu"
 
 repository:
     url: https://github.com/dsc-courses/dsc10-notes
